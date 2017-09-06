@@ -166,6 +166,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#82cec8', end
 footer{
 	display: flex;
 	width: 100%;
+	min-width: 1000px;
 	justify-content: center;
 	border-top: 2px solid #939393;
 }
