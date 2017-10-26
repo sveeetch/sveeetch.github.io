@@ -1,0 +1,36 @@
+	.callback {background: #FF9F30; border-radius: 50% !important; bottom: 40px; cursor: move; height: 50px; position: fixed; right: 40px; width: 50px; z-index: 9999; cursor:pointer;}
+.callback .callback_link::before {background: rgba(0, 0, 0, 0) url(phone.png) no-repeat scroll center center / 35px auto; content: ""; height: 50px; left: 0; position: absolute; top: 0; width: 50px; z-index: 11;}
+.callback:hover {animation: 1.5s linear 0s normal none infinite running callback_anim;}
+.callback:hover .callback_b, .callback:hover .callback_a {background-color: #FF9F30; border-color: #FF9F30;}
+.callback .callback_block {height: 50px; position: absolute; width: 50px;}
+.callback .callback_a {-webkit-animation: callback 3s linear 0s infinite; -moz-animation: callback 3s linear 0s infinite; animation: callback 3s linear 0s infinite; background-color: transparent; border: 2px solid #FF9F30; border-radius: 100% !important; bottom: -25px; box-sizing: border-box; height: 100px; opacity: 0.01; position: absolute; right: -25px; width: 100px;}
+.callback .callback_b {-webkit-animation: callback 1.5s linear 0s infinite; -moz-animation: callback 1.5s linear 0s infinite; animation: callback 1.5s linear 0s infinite; background-color: transparent; border: 2px solid #FF9F30; border-radius: 100% !important; bottom: -25px; box-sizing: border-box; height: 100px; opacity: 0.01; position: absolute; right: -25px; width: 100px;}
+@keyframes callback {
+0% {opacity: 0.8; transform: rotate(0deg) scale(0.46) skew(1deg);}
+10% {transform: rotate(0deg) scale(0.56) skew(1deg);}
+100% {opacity: 0.01; transform: rotate(0deg) scale(1) skew(1deg);}
+}
+@-webkit-keyframes callback {
+0% {opacity: 0.8; transform: rotate(0deg) scale(0.46) skew(1deg);}
+10% {transform: rotate(0deg) scale(0.56) skew(1deg);}
+100% {opacity: 0.01; transform: rotate(0deg) scale(1) skew(1deg);}
+}
+@-moz-keyframes callback {
+0% {opacity: 0.8; transform: rotate(0deg) scale(0.46) skew(1deg);}
+10% {transform: rotate(0deg) scale(0.56) skew(1deg);}
+100% {opacity: 0.01; transform: rotate(0deg) scale(1) skew(1deg);}
+}
+@keyframes callback_anim {
+0% {transform: scale3d(1, 1, 1);}
+10%, 20% {transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);}
+30%, 50%, 70%, 90% {transform: scale3d(1.05, 1.05, 1.05) rotate3d(0, 0, 1, 3deg);}
+40%, 60%, 80% {transform: scale3d(1.05, 1.05, 1.05) rotate3d(0, 0, 1, -3deg);}
+100% {transform: scale3d(1, 1, 1);}
+}
+@keyframes callback_anim {
+0% {transform: scale3d(1, 1, 1);}
+10%, 20% {transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);}
+30%, 50%, 70%, 90% {transform: scale3d(1.05, 1.05, 1.05) rotate3d(0, 0, 1, 3deg);}
+40%, 60%, 80% {transform: scale3d(1.05, 1.05, 1.05) rotate3d(0, 0, 1, -3deg);}
+100% {transform: scale3d(1, 1, 1);}
+}
