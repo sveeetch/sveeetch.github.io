@@ -50,3 +50,14 @@
 	border:3px solid #ffffff !important;
 	color: white;
 }
+.btn-orange-dark{
+	background-color: #FF9F30 ;
+	border-radius: 1px !important;
+	border:3px solid #FF9F30 !important;
+	color: #ffffff;
+}
+.btn-orange-dark:hover{
+	background-color: #ffffff ;
+	border:3px solid #000000 !important;
+	color: #343A40;
+}
