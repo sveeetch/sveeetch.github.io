@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="callback.css">
-	<link rel="stylesheet" href="style.sass">
+	<link rel="stylesheet" href="style.scss">
 	<link rel="stylesheet" href="timeline.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
@@ -17,6 +17,7 @@
 		<nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
       <a class="navbar-brand" href="#"><img src="logo.png" alt="" width="50px"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
@@ -30,11 +31,14 @@
     </nav>
 	
   	<div class="container-fluid cover ">
-      <div class="w-50 pl-5 mt-5 pt-5">
-  		<h1 class="display-4 text-white mt-5 pt-5">Ветеринарная клиника "Доктор Котоffский"</h1>
+      <div class="row">
+      <div class="col-12 col-xs-12 col-sm-1 col-lg-1 col-xl-1"></div>
+      <div class="col-12 col-xs-12 col-sm-8 col-lg-6 col-xl-6">
+  		<h1 class="text-white">Ветеринарная клиника "Доктор Котоffский"</h1>
   		<p class="lead text-light">Профессиональная помощь в области лечения инфекционных заболеваний наших четверолапых друзей  			
   		</p>
 		  <a class="btn btn-primary btn-lg p-3" href="#" role="button">Записаться на приём</a>
+    </div>
     </div>
   	</div>
     <div class="container">
@@ -72,25 +76,25 @@
       </div>
     </div>
     	<div class="row">
-    		<div class="col">
+    		<div class="col-6">
     			<h2>Some text</h2>
     			<p>Description
     				"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     			</p>
     		</div>
-    		<div class="col">
+    		<div class="col-6">
     			<h2>Some text</h2>
     			<p>Description
     				"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     			</p>
     		</div>
-    		<div class="col">
+    		<div class="col-6">
     			<h2>Some text</h2>
     			<p>Description
     				"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     			</p>
     		</div>
-    		<div class="col">
+    		<div class="col-6">
     			<h2>Some text</h2>
     			<p>Description
     				"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
@@ -98,13 +102,12 @@
     		</div>
     	</div>
     </div>
-<div class="container">
-  <div class="row">
-    <div class="col-2"></div>
-    <div class="col-8">
+<div class="container my-5">
+  <div class="row d-flex justify-content-center ">
+    <div class="col-12 col-xs-12 col-sm-12 col-lg-10 col-xl-8">
         <div class="page-header">
-        <h1 id="timeline">Как работает онлайн запись?</h1>
-    </div>
+        <h2 id="timeline" class="h2 text-center">Как работает онлайн запись?</h2>
+        </div>
     <ul class="timeline">
         <li>
           <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
@@ -141,7 +144,6 @@
         </li>
     </ul>
     </div>
-    <div class="col-2"></div>
   </div>
   
 </div>
