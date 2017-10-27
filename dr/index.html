@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="callback.css">
   <link rel="stylesheet" href="btn.css">
   <link rel="stylesheet" href="timeline.css">
+  <script src="https://use.fontawesome.com/50a7f8e0b5.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700&amp;subset=cyrillic" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Exo+2:300,400,500,700&amp;subset=cyrillic" rel="stylesheet">
     <!-- Bootstrap CSS -->
@@ -19,35 +20,34 @@
     <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
       <a class="navbar-brand" href="#"><img src="logo.png" alt="" width="50px"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
         <div class="navbar-nav ">
-          <a class="nav-item nav-link text-uppercase mx-3" href="#">Домой</a>
+          <a class="nav-item nav-link text-uppercase mx-3 active" href="#">Домой</a>
           <a class="nav-item nav-link text-uppercase mx-3" href="#">Услуги</a>
           <a class="nav-item nav-link text-uppercase mx-3" href="#">Блог</a>
           <a class="nav-item nav-link text-uppercase mx-3" href="#">Контакты</a>
         </div>
       </div>
     </nav>
-  
+
     <div class="container-fluid cover ">
       <div class="row">
-      <div class="col-12 col-xs-12 col-sm-1 col-lg-1 col-xl-1"></div>
-      <div class="col-12 col-xs-12 col-sm-8 col-lg-6 col-xl-6">
-      <h1 class="text-white">Ветеринарная клиника "Доктор Котоffский"</h1>
-      <p class="lead text-light">Профессиональная помощь в области лечения инфекционных заболеваний наших четверолапых друзей       
-      </p>
-      <a class="btn btn-dark-outline-orange btn-lg p-3" href="#" role="button">Записаться на приём</a>
+        <div class="col-12 col-xs-12 col-sm-1 col-lg-1 col-xl-1"></div>
+        <div class="col-12 col-xs-12 col-sm-8 col-lg-6 col-xl-6">
+          <h1 class="text-white">Ветеринарная клиника &shy;"Доктор Котоffский"</h1>
+          <p class="lead text-light">Профессиональная помощь в области лечения инфекционных заболеваний наших четверолапых друзей       
+          </p>
+          <a class="btn btn-dark-outline-orange btn-lg p-3" href="#" role="button">Записаться на приём</a>
+        </div>
+        <a href="#cont" class="col-12 col-xs-12 col-sm-12 col-lg-12 col-xl-12 display-3 text-center text-warning go_to">
+          <i class="fa fa-angle-down" aria-hidden="true"></i>
+        </a>
+      </div>
     </div>
-    </div>
-    </div>
-    <div class="container">
-      <div class="row">
-      
-    </div>
-    <div class="row my-5 py-5">
+    <div id="cont" class="container">
+    <div  class="row my-5 py-5">
       <div class="col">
       <h2>
         Заметили такие симптомы у своего любимца?
@@ -103,7 +103,7 @@
   <div class="row d-flex justify-content-center ">
     <div class="col-12 col-xs-12 col-sm-12 col-lg-10 col-xl-8">
         <div class="page-header">
-        <h2 id="timeline" class="h2 text-center">Как работает онлайн запись?</h2>
+        <h2 id="timeline" class="h2 text-left text-md-center">Как работает онлайн запись?</h2>
         </div>
     <ul class="timeline">
         <li>
@@ -150,18 +150,33 @@
         </div>
       </div>
   
-
+<script>
+  $(document).ready(function(){
+      $('.go_to').click( function(){ // ловим клик по ссылке с классом go_to
+    var scroll_el = $(this).attr('href'); // возьмем содержимое атрибута href, должен быть селектором, т.е. например начинаться с # или .
+          if ($(scroll_el).length != 0) { // проверим существование элемента чтобы избежать ошибки
+        $('html, body').animate({ scrollTop: $(scroll_el).offset().top }, 500); // анимируем скроолинг к элементу scroll_el
+          }
+        return false; // выключаем стандартное действие
+      });
+  });
+</script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-    <div class="callback">
-      <a class="callback_link" data-toggle="modal" data-target=".bd-example-modal-lg">
-      <div class="callback_block"><div class="callback_a"></div><div class="callback_b"></div></div>
-      </a>  
-    </div>
+      <div class="callback callback-full" data-toggle="tooltip" data-placement="left" title="Есть вопрос?">
+        <a class="callback_link" data-toggle="modal" data-target=".bd-example-modal-lg">
+        <div class="callback_block"><div class="callback_a"></div><div class="callback_b"></div></div>
+        </a> 
+      </div>
+      <div class="callback callback-min">
+        <a class="callback_link" href="tel:380500471592">
+        <div class="callback_block"><div class="callback_a"></div><div class="callback_b"></div></div>
+        </a> 
+      </div>
     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -172,5 +187,11 @@
         </div>
       </div>
     </div>
+    <script>
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+      })
+    </script>
+    
   </body>
 </html>
