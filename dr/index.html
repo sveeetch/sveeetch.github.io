@@ -7,11 +7,13 @@
         <meta
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="callback.css">
-        <link rel="stylesheet" href="btn.css">
-        <link rel="stylesheet" href="timeline.css">
+        <link rel="stylesheet" href="style/style.css">
+        <link rel="stylesheet" href="style/callback.css">
+        <link rel="stylesheet" href="style/btn.css">
+        <link rel="stylesheet" href="style/timeline.css">
+        <link rel="stylesheet" href="style/font.css">
         <script src="https://use.fontawesome.com/50a7f8e0b5.js"></script>
+        <script src="script/jquery.maskedinput.js"></script>
         <link
             href="https://fonts.googleapis.com/css?family=Exo+2:300,400,500,700&amp;subset=cyrillic"
             rel="stylesheet">
@@ -24,9 +26,8 @@
             crossorigin="anonymous">
     </head>
     <body>
-
-        <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
-            <a class="navbar-brand" href="#"><img src="logo.png" alt="" width="50px"></a>
+        <nav class="navbar sticky-top navbar-expand-sm navbar-dark bg-dark">
+            <a class="navbar-brand" href="#"><img src="img/logo.png" alt="" width="50px"></a>
             <button
                 class="navbar-toggler"
                 type="button"
@@ -48,45 +49,48 @@
                 </div>
             </div>
         </nav>
-
-        <div class="container-fluid cover ">
+        <div class="container-fluid cover d-flex flex-column justify-content-end">
             <div class="row">
                 <div class="col-12 col-xs-12 col-sm-1 col-lg-1 col-xl-1"></div>
                 <div class="col-12 col-xs-12 col-sm-8 col-lg-6 col-xl-6">
-                    <h1 class="text-white">Ветеринарная клиника &shy;"Доктор Котоffский"</h1>
+                    <h1 class="text-white">Ветеринарная клиника &shy;"Доктор&nbsp;Котоffский"</h1>
                     <p class="lead text-light">Профессиональная помощь в области лечения
                         инфекционных заболеваний наших четверолапых друзей
                     </p>
-                    <a class="btn btn-dark-outline-orange btn-lg p-3" href="#" role="button">Записаться на приём</a>
+                    <a class="btn btn-dark-outline-orange btn-lg p-md-3 px-md-5 font-weight-bold  " href="#" role="button">Записаться на приём</a>
                 </div>
-                <a
-                    href="#cont"
-                    class="col-12 col-xs-12 col-sm-12 col-lg-12 col-xl-12 display-3 text-center text-warning go_to">
-                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                <a href="#cont" class="col-12 mb-1 mt-5 h1 text-center text-light go_to">
+                  <i class="fa fa-angle-down" aria-hidden="true"></i>
                 </a>
             </div>
         </div>
-        <div id="cont" class="container">
-            <div class="row my-5 py-5 d-flex justify-content-center align-items-center">
-                <div class="col-12 col-md-6">
-                    <h2>
+        <div id="cont" class="container"><!-- Заметили такие симптомы у своего любимца? -->
+            <div class="row mt-5 pt-5 d-flex justify-content-center align-items-center">
+                <div class="col-12 col-md-8">
+                    <h2 class="text-center mb-3 text-orange">
                         Заметили такие симптомы у своего любимца?
                     </h2>
-                    <ul>
+                    <ul class="row">
+                        <span class="col-12 col-md-6">
                         <li>отказ от еды,</li>
                         <li>плохой аппетит,</li>
                         <li>потеря веса или резкий набор массы;</li>
                         <li>вялость или агрессия, нервозность;</li>
                         <li>покраснения, шелушение кожи;</li>
+                        </span>
+                        <span class="col-12 col-md-6">
                         <li>появление залысин;</li>
                         <li>выделения из глаз, носа;</li>
                         <li>повышенная или пониженная температура;</li>
                         <li>кровь в выделениях, затрудненное мочеиспускание или вовсе его прекращение;
                             диарея, рвота</li>
+                        </span>
                     </ul>
                 </div>
+              </div>
+              <div class="row mb-5 pb-5 d-flex justify-content-center align-items-center">
                 <div class="col-12 col-md-6">
-                    <h2 class="">
+                    <h2 class="text-center mb-3 text-orange">
                         Вам стоит знать!
                     </h2>
                     <p>Если один из этих симптомов сошлись с симптомами вашего животного - то
@@ -95,54 +99,89 @@
                         специалисту. Сэкономьте ваше время деньги!</p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12 text-center">
-                    <h2>Почему выбирают нас?</h2>
-                    <p class="lead">
-                        Каждый день мы делам жизнь наших клиентов счастливее
+        </div>
+        <div class="container"><!-- line -->
+          <div class="border col my-5"></div>
+        </div>
+        <div class="container text-center justify-content-center align-items-center"><!-- А вы знали? -->
+            <div class="row justify-content-center align-items-center">
+                <div class="col-12 col-md-10 col-xl-8">
+                    <h2>А вы знали?</h2>
+                    <p class="lead text-left">
+                        Нормальная температура тела кошки находится в пределах 37,5-39 ºC, причем у
+                        молодых кошек она ближе к верхней границе, а у пожилых – к нижней.
+                    </p>
+                    <p class="lead text-left">
+                        Частота дыхания у котенка колеблется в пределах 60 вдохов в минуту, у молодых
+                        особей – 22-24 вдоха, а у взрослых – 17-23.
+                    </p>
+                    <p class="lead text-left">
+                        Нормальные показатели пульса для кошки – 100-130 ударов в минуту
                     </p>
                 </div>
-                <div class="col-12 col-md-2 col-xl-3"></div>
-                <div class="col-12 col-md-8 col-xl-6">
-                    <ul class="list-unstyled">
-                        <li class="media">
-                            <img
-                                class="mr-3 align-self-center"
-                                src="img/li-1.png"
-                                alt="Generic placeholder image">
-                            <div class="media-body">
-                                <h5 class="mt-4 mb-1">Высокое качество</h5>
-                                We are the leading firm by delivering quality and value to our clients. All our
-                                professionals have more than 5 years of legal experiences. We like what we do.
-                            </div>
-                        </li>
-                        <li class="media my-4">
-                            <img
-                                class="mr-3 align-self-center"
-                                src="img/li-2.png"
-                                alt="Generic placeholder image">
-                            <div class="media-body">
-                                <h5 class="mt-4 mb-1">Good Support</h5>
-                                Our managers are always ready to answer your questions. You can call us at the
-                                weekends and at night. Also you can visit our office for personal consultation.
-                            </div>
-                        </li>
-                        <li class="media">
-                            <img
-                                class="mr-3 align-self-center"
-                                src="img/li-3.png"
-                                alt="Generic placeholder image">
-                            <div class="media-body">
-                                <h5 class="mt-4 mb-1">Something else</h5>
-                                Our company works according to the principle of individual approach to every
-                                client. This method lets us to get success in problems of all levels.
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+            </div>
+            <div class="row mt-4 justify-content-center align-items-center">
+              <div class="col-12 col-md-6 col-xl-5">
+                  <h4>Хотите получить ещё интересных фактов? Подпишись на уникальную рассылку!</h4>
+                  <button class="btn btn-dark-outline mt-3 p-3 px-5">Подписаться</button>
+              </div>
             </div>
         </div>
-        <div class="container my-5 py-5">
+        <div class="container"><!-- line -->
+          <div class="border col my-5"></div>
+        </div>
+        <div class="container">
+          <div class="row">
+              <div class="col-12 text-center"><!-- Почему выбирают нас? -->
+                  <h2>Почему выбирают нас?</h2>
+                  <p class="lead">
+                      Каждый день мы делам жизнь наших клиентов счастливее
+                  </p>
+              </div>
+              <div class="col-12 col-md-2 col-xl-3"></div>
+              <div class="col-12 col-md-8 col-xl-6">
+                  <ul class="list-unstyled">
+                      <li class="media">
+                          <img
+                              class="mr-3 align-self-center"
+                              src="img/li-1.png"
+                              alt="Generic placeholder image">
+                          <div class="media-body">
+                              <h5 class="mt-4 mb-1">Высокое качество</h5>
+                              We are the leading firm by delivering quality and value to our clients. All our
+                              professionals have more than 5 years of legal experiences. We like what we do.
+                          </div>
+                      </li>
+                      <li class="media my-4">
+                          <img
+                              class="mr-3 align-self-center"
+                              src="img/li-2.png"
+                              alt="Generic placeholder image">
+                          <div class="media-body">
+                              <h5 class="mt-4 mb-1">Good Support</h5>
+                              Our managers are always ready to answer your questions. You can call us at the
+                              weekends and at night. Also you can visit our office for personal consultation.
+                          </div>
+                      </li>
+                      <li class="media">
+                          <img
+                              class="mr-3 align-self-center"
+                              src="img/li-3.png"
+                              alt="Generic placeholder image">
+                          <div class="media-body">
+                              <h5 class="mt-4 mb-1">Something else</h5>
+                              Our company works according to the principle of individual approach to every
+                              client. This method lets us to get success in problems of all levels.
+                          </div>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+        </div>
+        <div class="container"><!-- line -->
+          <div class="border col my-5"></div>
+        </div>
+        <div class="container my-5 py-5"><!-- Как работает онлайн запись? -->
             <div class="row d-flex justify-content-center">
                 <div class="col-12 col-xs-12 col-sm-12 col-lg-10 col-xl-8">
                     <div class="page-header">
@@ -195,38 +234,17 @@
                 </div>
             </div>
         </div>
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-12 col-md-1 col-xl-2"></div>
-                <div class="col-12 col-md-10 col-xl-8">
-                    <h2>А вы знали?</h2>
-                    <p class="lead text-left">
-                        Нормальная температура тела кошки находится в пределах 37,5-39 ºC, причем у
-                        молодых кошек она ближе к верхней границе, а у пожилых – к нижней.
-                    </p>
-                    <p class="lead text-left">
-                        Частота дыхания у котенка колеблется в пределах 60 вдохов в минуту, у молодых
-                        особей – 22-24 вдоха, а у взрослых – 17-23.
-                    </p>
-                    <p class="lead text-left">
-                        Нормальные показатели пульса для кошки – 100-130 ударов в минуту
-                    </p>
-                </div>
-            </div>
-            <div class="row">
-              <div class="col-12 col-md-2 col-xl-3"></div>
-              <div class="col-12 col-md-8 col-xl-6">
-                  <h2>Хотите получить ещё интересных фактов? Подпишись на уникальную рассылку!</h2>
-                  <button class="btn btn-dark-outline btn-lg p-3 px-5">Подписаться</button>
-              </div>
-            </div>
-        </div>
-        <div class="border col my-5"></div>
-        <div class="container">
-            <form action="appointment">
-                <div class="form-row">
+        <div class="container-fluid appointment pb-5">
+          <div class="row d-flex justify-content-center">
+            <h2>Записаться на приём онлайн</h2>
+            <p class="lead">
+              Оставьте ваши контактные данные и выберите удобное для вас время. Всё остальное — мы сделаем за вас.
+            </p>
+          </div>
+            <form action="appointment" class="pb-5">
+                <div class="form-row d-flex justify-content-center">
                   <div class="form-group col-12 col-md-6">
-                    <label for="inputReason">Причина обращения</label>
+                    <label for="inputReason" class="col-form-label">Причина обращения</label>
                     <select id="inputReason" class="form-control">
                       <option selected>Выберите...</option>
                       <option>Болезнь питомца</option>
@@ -236,7 +254,7 @@
                     </select>
                   </div>
                   <div class="form-group col-12 col-md-6">
-                    <label for="inputAnimal">Какое животное</label>
+                    <label for="inputAnimal" class="col-form-label">Какое животное</label>
                     <select id="inputAnimal" class="form-control">
                       <option label selected>Выберите...</option>
                       <option>Кошка</option>
@@ -246,21 +264,63 @@
                     </select>
                   </div>
                   <div class="form-group col-12 col-md-6">
-                      <label for="example-date-input" class="col-form-label">Дата приёма</label>
+                      <label for="date" class="col-form-label">Дата приёма</label>
                       <div class="">
-                          <input class="form-control" type="date" value="2017-10-27" id="">
+                          <input class="form-control" type="date" value="2017-12-30" id="date">
                       </div>
                   </div>
                   <div class="form-group col-12 col-md-6">
-                    <label for="example-tel-input" class="col-2 col-form-label">Telephone</label>
-                    <input class="form-control" type="tel" placeholder="380 (56) 999 99 99" value="" id="example-tel-input">
+                    <label for="time" class="col-form-label">Время приёма</label>
+                    <input class="form-control" type="time" value="13:45:00" id="time">
                   </div>
                   <div class="form-group col-12 col-md-6">
-                    <label for="example-time-input" class="col-2 col-form-label">Time</label>
-                    <input class="form-control" type="time" value="13:45:00" id="example-time-input">
+                    <label for="tel" class="col-form-label">Ваш телефон</label>
+                    <input class="form-control" type="tel" placeholder="380 (99) 999-9999" value="" id="tel">
                   </div>
                 </div>
             </form>
+        </div>
+        <div class="container-fluid footer ">
+          <div class="row d-flex justify-content-between">
+            <div class="col-md-9 row">
+              <div class="h2 col-12 mt-3">Доктор Котоffский</div>
+              <div class="col-sm-4">
+                <h5>Адрес</h5>
+                <p>
+                  Днепр, Большая Диёвская,&nbsp;46 <br>
+                  (бывшая ул. Братьев Трофимовых),<br>
+                  ж/м Покровский
+                </p>
+              </div>
+              <div class="col-sm-4">
+                <h5>Контакты</h5>
+                <p>
+                  +380 (56) 788–96–97 <br>
+                  +380 97–713–30–14 <br>
+                  dr.kotoffskiy@gmail.com
+                </p>
+              </div>
+              <div class="col-sm-4">
+                <h5>Часы работы</h5>
+                <p>
+                  Пн - Пт <br>
+                  08:00 - 19:00 <br>
+                  Сб - Вс <br>
+                  09:00 - 18:00                  
+                </p>
+              </div>
+              <div class="col-12">
+            <p><small>© 2017 Доктор Котоффский</small></p>
+          </div>
+            </div>
+            <div class="col-md-3 footer-nav text-orange">
+              <div class="h2 text-orange mt-3"><i class="fa fa-facebook-square" aria-hidden="true"></i><i class="fa fa-instagram ml-3" aria-hidden="true"></i></div>
+              <h5>Услуги</h5>
+              <h5>Блог</h5>
+              <h5>Контакты</h5>
+            </div>
+          </div>
+          
         </div>
 
         <!-- Optional JavaScript -->
@@ -307,7 +367,7 @@
             </a>
         </div>
         <div class="callback callback-min">
-            <a class="callback_link" href="tel:380500471592">
+            <a class="callback_link" href="tel:380977133014">
                 <div class="callback_block">
                     <div class="callback_a"></div>
                     <div class="callback_b"></div>
@@ -338,6 +398,10 @@
                 $('[data-toggle="tooltip"]').tooltip()
             })
         </script>
-
+        <script type="text/javascript">
+           jQuery(function($){
+           $("#tel").mask("380 (99) 999-9999");
+           });
+        </script>
     </body>
 </html>

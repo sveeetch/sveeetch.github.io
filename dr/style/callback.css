@@ -1,5 +1,5 @@
 	.callback {background: #FF9F30; border-radius: 50% !important; bottom: 40px; cursor: move; height: 50px; position: fixed; right: 40px; width: 50px; z-index: 9999; cursor:pointer;}
-.callback .callback_link::before {background: rgba(0, 0, 0, 0) url(phone.png) no-repeat scroll center center / 35px auto; content: ""; height: 50px; left: 0; position: absolute; top: 0; width: 50px; z-index: 11;}
+.callback .callback_link::before {background: rgba(0, 0, 0, 0) url(../img/phone.png) no-repeat scroll center center / 35px auto; content: ""; height: 50px; left: 0; position: absolute; top: 0; width: 50px; z-index: 11;}
 .callback:hover {animation: 1.5s linear 0s normal none infinite running callback_anim;}
 .callback:hover .callback_b, .callback:hover .callback_a {background-color: #FF9F30; border-color: #FF9F30;}
 .callback .callback_block {height: 50px; position: absolute; width: 50px;}

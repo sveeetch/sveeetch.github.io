@@ -1,0 +1,57 @@
+body{
+	font-family: 'Blogger' !important;
+  	font-style: normal;
+}
+/*@media (max-width: 768px){
+	.cover{
+		height: 90vh;
+}*/
+@media (min-width: 576px) {
+	.callback-min{
+		display: none;
+	}
+}
+@media (max-width: 576px) {
+	.callback-full{
+		display: none;
+	}
+	p{
+		line-height: 1;
+	}
+}
+.text-orange{
+	color: #FF9F30;
+}
+.cover{
+	height: 90vh;
+	background: linear-gradient(to top,rgba(73, 86, 43,.4),rgba(0, 0, 0,.8)), url(../img/bg.jpg) no-repeat fixed;
+	background-position: center;
+	background-size: cover;
+	background-color: #343A40;
+}
+.nav-item{
+	font-size: 12pt;
+	font-weight: 500;
+	letter-spacing: 2pt;
+}
+.nav-item:hover{
+	color: #FF9F30 !important;
+}
+.appointment{
+	background: linear-gradient(to top,rgba(73, 86, 43,.4),rgba(255, 255, 255,1)), url(../img/appointment.jpg) center no-repeat fixed;
+	background-size: cover;
+}
+.footer{
+	background-color: #3F4043;
+	color: #ffffff;
+}
+.footer h5{
+	text-transform: uppercase;
+	font-weight: 400;
+	color: #FF9F30;
+}
+.footer-nav{
+	background-color: #323438;
+	font-weight: 500;
+	letter-spacing: 2pt;
+}
