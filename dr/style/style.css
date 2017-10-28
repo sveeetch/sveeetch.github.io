@@ -19,11 +19,18 @@ body{
 		line-height: 1;
 	}
 }
+.font-weight-medium{
+	font-weight: 500 !important;
+}
 .text-orange{
 	color: #FF9F30 !important;
 }
-div a .text-orange:hover, a .text-orange:hover, a.text-orange:hover, .text-orange a:hover{
+.text-orange a h5:hover, a .text-orange:hover, a.text-orange:hover, .text-orange a:hover{
 	color: #e08926 !important;
+	text-decoration: none;
+}
+.lead{
+	font-size: 1.1rem !important;
 }
 .cover{
 	height: 90vh;
@@ -57,4 +64,20 @@ div a .text-orange:hover, a .text-orange:hover, a.text-orange:hover, .text-orang
 	background-color: #323438;
 	font-weight: 500;
 	letter-spacing: 2pt;
+}
+.pattern1-bg{
+	background: linear-gradient(to top,rgba(255, 255, 255,.9),rgba(255, 255, 255,0.9)), url(../img/pattern1.png) fixed;
+}
+.blog-bg{
+	background: linear-gradient(to top,rgba(255, 255, 255,1),rgba(255, 255, 255,0.1)), url(../img/cat_head.jpg) no-repeat fixed;
+	background-position: center;
+	background-size: cover;
+	background-color: #343A40;
+}
+.bg2{
+	min-height: 100vh;
+	background: linear-gradient(to top,rgba(255, 255, 255,0.1),rgba(255, 255, 255,1)), url(../img/bg2.png) no-repeat fixed;
+	background-position: bottom center;
+	background-size: cover;
+	background-color: #343A40;
 }
