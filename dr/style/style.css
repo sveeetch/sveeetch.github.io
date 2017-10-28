@@ -20,7 +20,10 @@ body{
 	}
 }
 .text-orange{
-	color: #FF9F30;
+	color: #FF9F30 !important;
+}
+div a .text-orange:hover, a .text-orange:hover, a.text-orange:hover, .text-orange a:hover{
+	color: #e08926 !important;
 }
 .cover{
 	height: 90vh;
@@ -38,7 +41,7 @@ body{
 	color: #FF9F30 !important;
 }
 .appointment{
-	background: linear-gradient(to top,rgba(73, 86, 43,.4),rgba(255, 255, 255,1)), url(../img/appointment.jpg) center no-repeat fixed;
+	background: linear-gradient(to top,rgba(255, 255, 255,.4),rgba(255, 255, 255,1)), url(../img/appointment.jpg) center no-repeat fixed;
 	background-size: cover;
 }
 .footer{
