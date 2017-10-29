@@ -21,7 +21,7 @@
             crossorigin="anonymous">
     </head>
     <body>
-        <nav class="navbar sticky-top navbar-expand-sm navbar-dark bg-dark">
+        <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
             <a class="navbar-brand" href="#"><img src="img/logo.png" alt="" width="50px"></a>
             <button
                 class="navbar-toggler"
@@ -53,7 +53,7 @@
                     </p>
                     <a class="btn btn-dark1-outline-orange btn-lg p-md-3 px-md-5 font-weight-bold  " href="#appointment" role="button">Записаться на приём</a>
                 </div>
-                <a href="#cont" class="col-12 mb-1 mt-5 h1 text-center text-light go_to">
+                <a href="#cont" class="col-12 mb-1 mt-5 display-4 text-center text-light go_to">
                   <i class="fa fa-angle-down" aria-hidden="true"></i>
                 </a>
             </div>
@@ -102,9 +102,10 @@
           <div class="row">
               <div class="col-12 text-center">
                   <h2>Почему выбирают нас?</h2>
-                  <p class="lead">
+                  <p class="lead mb-0">
                       Каждый день мы делам жизнь наших клиентов счастливее
                   </p>
+                  <small class="text-muted">Как говорится в давней пословице "врач лечит человека, а ветеринар - человечество"</small>
               </div>
               <div class="col-12 col-md-2 col-xl-3"></div>
               <div class="col-12 col-md-8 col-xl-6">
@@ -212,7 +213,7 @@
             </div>
             <form action="appointment.php" class="pb-5">
                 <div class="form-row d-flex justify-content-center">
-                  <div class="form-group col-12 col-md-6">
+                  <div class="form-group col-12 col-sm-6 ">
                     <label for="inputReason" class="col-form-label">Причина обращения</label>
                     <select id="inputReason" class="form-control">
                       <option label selected>Выберите...</option>
@@ -222,7 +223,7 @@
                       <option>Консультация у врача</option>
                     </select>
                   </div>
-                  <div class="form-group col-12 col-md-6">
+                  <div class="form-group col-12 col-sm-6">
                     <label for="inputAnimal" class="col-form-label">Какое животное</label>
                     <select id="inputAnimal" class="form-control">
                       <option label selected>Выберите...</option>
@@ -232,19 +233,19 @@
                       <option>Другой</option>
                     </select>
                   </div>
-                  <div class="form-group col-12 col-md-6">
+                  <div class="form-group col-12 col-sm-6">
                       <label for="date" class="col-form-label">Дата приёма</label>
-                      <div class="">
-                          <input class="form-control" type="date" value="2017-12-30" id="date">
-                      </div>
+                      <input class="form-control" type="date" value="2017-12-30" id="date">
+                      <label class="d-none d-lg-block" for="date"><small class="text-muted">Вы можете воспользоваться символом "<i class="fa fa-caret-down" aria-hidden="true"></i>" для выбора даты</small></label>
                   </div>
-                  <div class="form-group col-12 col-md-6">
+                  <div class="form-group col-12 col-sm-6">
                     <label for="time" class="col-form-label">Время приёма</label>
                     <input class="form-control" type="time" value="13:45:00" id="time">
                   </div>
-                  <div class="form-group col-12 col-md-6">
+                  <div class="form-group col-12 col-sm-6">
                     <label for="tel" class="col-form-label">Ваш телефон</label>
-                    <input class="form-control" type="tel" placeholder="380 (99) 999-9999" value="" id="phone">
+                    <input class="form-control" type="tel" maxlength="20" minlength="6"  value="380 " placeholder="380 (99) 999-9999" id="phone">
+                    <label for="tel"><small class="text-muted">Введите, пожалуйста, телефон в формате "380 99 999 9999"</small></label>
                   </div>
                   <div class="col-12 text-center">
                     <button class="btn btn-orange btn-lg col-12 col-md-6">

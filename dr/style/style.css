@@ -19,6 +19,9 @@ body{
 		line-height: 1;
 	}
 }
+.h100{
+	height: 100vh;
+}
 .font-weight-medium{
 	font-weight: 500 !important;
 }
@@ -32,8 +35,11 @@ body{
 .lead{
 	font-size: 1.1rem !important;
 }
+nav.bg-dark{
+	background-color: rgba(52, 58, 64, 0.75) !important;
+}
 .cover{
-	height: 90vh;
+	height: 100vh;
 	background: linear-gradient(to top,rgba(73, 86, 43,.4),rgba(0, 0, 0,.8)), url(../img/bg.jpg) no-repeat fixed;
 	background-position: center;
 	background-size: cover;
@@ -75,9 +81,16 @@ body{
 	background-color: #343A40;
 }
 .bg2{
-	min-height: 100vh;
+	min-height: 80vh;
 	background: linear-gradient(to top,rgba(255, 255, 255,0.1),rgba(255, 255, 255,1)), url(../img/bg2.png) no-repeat fixed;
 	background-position: bottom center;
+	background-size: cover;
+	background-color: #343A40;
+}
+.bg3{
+	min-height: 100vh;
+	background: linear-gradient(to bottom,rgba(255, 255, 255,0.5),rgba(255, 255, 255,1)), url(../img/ekg1.png) no-repeat fixed;
+	background-position: center; ;
 	background-size: cover;
 	background-color: #343A40;
 }
