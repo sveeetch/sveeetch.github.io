@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="style/btn.css">
         <link rel="stylesheet" href="style/timeline.css">
         <link rel="stylesheet" href="style/font.css">
+        <link rel="stylesheet" href="style/ball.css">
         <script src="https://use.fontawesome.com/50a7f8e0b5.js"></script>
         <!-- Bootstrap CSS -->
         <link
@@ -39,7 +40,7 @@
                 <div class="navbar-nav ">
                     <a class="nav-item nav-link text-uppercase mx-3 active" href="#">Домой</a>
                     <a class="nav-item nav-link text-uppercase mx-3" href="service">Услуги</a>
-                    <a class="nav-item nav-link text-uppercase mx-3" href="blog">Блог</a>
+                    <a class="nav-item nav-link text-uppercase mx-3" href="blog" data-toggle="tooltip" data-placement="bottom" title="Здесь вы можете следить за нашими новостями и находить ответы на волнующие вас вопросы">Блог</a>
                     <a class="nav-item nav-link text-uppercase mx-3" href="contacts">Контакты</a>
                 </div>
             </div>
@@ -53,12 +54,12 @@
                     </p>
                     <a class="btn btn-dark1-outline-orange btn-lg p-md-3 px-md-5 font-weight-bold  " href="#appointment" role="button">Записаться на приём</a>
                 </div>
-                <a href="#cont" class="col-12 mb-1 mt-5 display-4 text-center text-light go_to">
-                  <i class="fa fa-angle-down" aria-hidden="true"></i>
+                <a href="#firstBlock" class="col-12 mb-1 mt-5 display-4 text-center text-light go_to">
+                  <i class="fa fa-angle-down ball" aria-hidden="true"></i>
                 </a>
             </div>
         </div>
-        <div id="cont" class="container"><!-- Заметили такие симптомы у своего любимца? -->
+        <div id="firstBlock" class="container"><!-- Заметили такие симптомы у своего любимца? -->
             <div class="row mt-5 pt-5 d-flex justify-content-center align-items-center">
                 <div class="col-12 col-md-8">
                     <h2 class="text-center mb-3 text-orange">
@@ -105,7 +106,7 @@
                   <p class="lead mb-0">
                       Каждый день мы делам жизнь наших клиентов счастливее
                   </p>
-                  <small class="text-muted">Как говорится в давней пословице "врач лечит человека, а ветеринар - человечество"</small>
+                  <small class="text-muted font-style-italic">Как говорится в давней пословице "врач лечит человека, а ветеринар - человечество"</small>
               </div>
               <div class="col-12 col-md-2 col-xl-3"></div>
               <div class="col-12 col-md-8 col-xl-6">
@@ -395,6 +396,7 @@
                 $('[data-toggle="tooltip"]').tooltip()
             })
         </script>
+        
         
     </body>
 </html>
