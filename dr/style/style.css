@@ -60,7 +60,7 @@ nav.bg-dark{
 	letter-spacing: 2pt;
 }
 .pattern1-bg{
-	background: linear-gradient(to top,rgba(255, 255, 255,.8),rgba(255, 255, 255,0.8)), url(../img/pattern1.png) fixed;
+	background: linear-gradient(to top,rgba(255, 255, 255,.9),rgba(255, 255, 255,0.9)), url(../img/pattern1.png) fixed;
 }
 .blog-bg{
 	background: linear-gradient(to top,rgba(255, 255, 255,1),rgba(255, 255, 255,0.1)), url(../img/cat_head.jpg) no-repeat fixed;
@@ -83,7 +83,11 @@ nav.bg-dark{
 	background-color: #343A40;
 }
 .bg4{
-	background-color: #f7f7f7;
+background: rgb(229,239,255);
+background: -moz-linear-gradient(-45deg, rgba(229,239,255,1) 0%, rgba(229,255,243,1) 100%);
+background: -webkit-linear-gradient(-45deg, rgba(229,239,255,1) 0%,rgba(229,255,243,1) 100%);
+background: linear-gradient(135deg, rgba(229,239,255,1) 0%,rgba(229,255,243,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5efff', endColorstr='#e5fff3',GradientType=1 );
 }
 .color-1{
 	color: #45b3b7;
