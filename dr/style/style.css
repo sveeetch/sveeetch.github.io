@@ -36,18 +36,18 @@ nav.bg-dark{
 }
 #cover{
 	height: 85vh;
-	background: linear-gradient(to top,rgba(73, 86, 43,.4),rgba(0, 0, 0,.8)), url(../img/cover4.jpg) no-repeat fixed;
+	background: linear-gradient(to top,rgba(73, 86, 43,.3),rgba(0, 0, 0,.7)), url(../img/cover4.jpg) no-repeat fixed;
 	background-position: center;
 	background-size: cover;
 	background-color: #343A40;
 }
 @media (min-width: 768px) {
-#how_appointment{
-	background: linear-gradient(to bottom,rgba(255, 255, 255,1),rgba(255, 255, 255,0.95),rgba(0, 0, 0,0.1)), url(../img/how_appointment.jpg) no-repeat ;
+/*#how_appointment{
+	background: linear-gradient(to bottom,rgba(255, 255, 255,1),rgba(255, 255, 255,0.95),rgba(255, 255, 255,0.95),rgba(0, 0, 0,0.3)), url(../img/how_appointment.jpg) no-repeat ;
 	background-position: bottom;
 	background-size: cover;
 	background-color: #fff;
-}
+}*/
 }
 /*.appointment{
 	background: linear-gradient(to top,rgba(255, 255, 255,.8),rgba(255, 255, 255,1)), url(../img/cover.jpg) bottom no-repeat ;
