@@ -133,8 +133,9 @@
         <a href="#appointment" class="btn btn-dark1-outline-orange p-3 px-5">Записаться</a>
       </div>
     </div> -->
+    <div class="container-fluid bg6">
     <div id="firstBlock" class="container "><!-- Заметили такие симптомы у своего любимца? -->
-      <div class="row  mt-5 pt-5 d-flex justify-content-center align-items-center">
+      <div class="row pt-5 d-flex justify-content-center align-items-center">
         <img src="img/firstBlock.jpg" class="img-fluid img-thumbnail" alt="Responsive image" style="max-height: 300px;">
         <div class=" col-12 col-md-8">
           <h2 class="card-header text-center mb-3 text-orange">
@@ -168,15 +169,16 @@
           <p>В таком случае стоит действовать без промедления, и сразу <strong>обратиться к специалисту</strong>. Сэкономьте ваше время деньги!</p>
         </div>
       </div>
-      <div class="col-12 d-flex justify-content-center mt-3 mb-5 pb-5">
+      <div class="col-12 d-flex justify-content-center mt-3 pb-5">
         <a href="#appointment" class="btn btn-dark1-outline-orange p-3 px-5">Записаться</a>
       </div>
     </div>
-    <div class="container">
-      <!-- line -->
-      <div class="border col mt-5"></div>
     </div>
-    <div class="container-fluid pattern1-bg" id="advantages">
+      <!-- line -->
+    <!-- <div class="container">
+      <div class="border col mt-5"></div>
+    </div> -->
+    <div class="container-fluid bg-light" id="advantages">
       <div class="container  my-0 py-5">
         <!-- Наши преимущества -->
         <div class="row mb-5">
@@ -214,7 +216,7 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid mb-5 bg4">
+    <div class="container-fluid  bg4">
       <div class="container  ">
         <div class="row text-center py-5 ">
           <!--               .col-12.col-sm-6.col-md-3>p.display-3.color-1+p.lead
@@ -238,8 +240,8 @@
         </div>
       </div>
     </div>
-    <div class="container">
-      <!-- <div class="row d-flex justify-content-around">
+   <!-- <div class="container">
+       <div class="row d-flex justify-content-around">
         <div class="col-12 col-sm-6 col-md-6 col-lg-3 mt-3">
           <div class="card">
             <img src="" alt="" class="card-img-top">
@@ -347,13 +349,14 @@
             <p class="card-text">Более-менее подробное описание для услуги</p>
           </div>
         </div>
-      </div> -->
-    </div>
-    <div class="container">      <!-- line -->
+      </div> 
+    </div>-->
+     <!-- line -->
+    <!-- <div class="container">     
       <div class="border col my-5"></div>
-    </div>
-    <div class="container-fluid" id="how_appointment">
-    <div class="container mt-5 py-5">      <!-- Как работает онлайн запись? -->
+    </div> -->
+    <div class="container-fluid bg5" id="how_appointment">
+    <div class="container py-5">      <!-- Как работает онлайн запись? -->
       <div class="row d-flex justify-content-center">
         <div class="col-12 col-xs-12 col-sm-12 col-lg-10 col-xl-8">
           <div class="my-5  page-header">
@@ -407,7 +410,10 @@
       </div>
     </div>
     </div>
-    <div class="container-fluid appointment py-5" id="appointment">
+    <!-- <div class="container">     
+      <div class="border col my-5"></div>
+    </div> -->
+    <!-- <div class="container-fluid appointment py-5 bg-light" id="appointment">
       <div class="container">
         <div class="row d-flex justify-content-center text-center">
           <h2 class="display-4 text-orange">Записаться на приём онлайн</h2>
@@ -459,10 +465,64 @@
           </div>
         </form>
       </div>
+    </div> -->
+    <div class="container-fluid appointment py-5 bg-dark text-light" id="appointment">
+      <div class="container">
+        <div class="row d-flex justify-content-center text-center">
+          <h2 class="display-4 text-orange">Записаться на приём онлайн</h2>
+          <p class="lead">
+            Оставьте ваши контактные данные и&nbsp;выберите удобное для вас время. Всё остальное&nbsp;—&nbsp;мы&nbsp;сделаем за вас.
+          </p>
+        </div>
+        <form action="appointment.php" class="pb-5">
+          <div class="form-row d-flex justify-content-center">
+            <div class="form-group col-12 col-sm-6 ">
+              <label for="inputReason" class="col-form-label">Причина обращения</label>
+              <select id="inputReason" class="form-control">
+                <option label selected>Выберите...</option>
+                <option>Болезнь питомца</option>
+                <option>Стрижка питомца</option>
+                <option>Вакцинация питомца</option>
+                <option>Консультация у врача</option>
+              </select>
+            </div>
+            <div class="form-group col-12 col-sm-6">
+              <label for="inputAnimal" class="col-form-label">Какое животное</label>
+              <select id="inputAnimal" class="form-control">
+                <option label selected>Выберите...</option>
+                <option>Кошка</option>
+                <option>Собака</option>
+                <option>Грызун</option>
+                <option>Другой</option>
+              </select>
+            </div>
+            <div class="form-group col-12 col-sm-6">
+              <label for="date" class="col-form-label">Дата приёма</label>
+              <input class="form-control" type="date" value="2017-12-30" id="date">
+              <label class="d-none d-lg-block" for="date"><small class="text-muted">Вы можете воспользоваться символом "<i class="fa fa-caret-down" aria-hidden="true"></i>" для выбора даты</small></label>
+            </div>
+            <div class="form-group col-12 col-sm-6">
+              <label for="time" class="col-form-label">Время приёма</label>
+              <input class="form-control" type="time" value="13:45:00" id="time">
+            </div>
+            <div class="form-group col-12 col-sm-6">
+              <label for="tel" class="col-form-label">Ваш телефон</label>
+              <input class="form-control" type="tel" maxlength="20" value="" minlength="7" placeholder="38 (099) 999-9999" id="phone">
+              <label for="tel"><small class=" text-muted">Введите, пожалуйста, телефон в формате "38&nbsp;099&nbsp;999&nbsp;9999"</small></label>
+            </div>
+            <div class="col-12 text-center">
+              <button type="submit" class="btn btn-orange btn-lg col-12 col-md-6">
+              Записаться
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
-    <div class="container">      <!-- line -->
+     <!-- line -->
+    <!-- <div class="container">     
       <div class="border col my-5"></div>
-    </div>
+    </div> -->
     <div class="container-fluid py-5 bg2">
       <!-- А вы знали? -->
       <div class="container text-center justify-content-center align-items-center pt-5">
