@@ -124,6 +124,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffd6b2', end
 	background-color: #FF9F30;
 	color: #fff !important;
 }
+.carousel-indicators li{
+	width: 10px !important;
+	height: 10px !important;
+	border-radius: 100px ;
+
+}
 @media (min-width: 576px) {
 	.callback-min{
 		display: none;
