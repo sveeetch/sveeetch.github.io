@@ -168,7 +168,7 @@
         </div>
       </div>
       <div class="row justify-content-center">
-        <button class="btn btn-news" style="max-width: 300px;">Читать все новости <i class="fa fa-angle-right" aria-hidden="true"></i></button>
+        <button class="btn btn-news" style="max-width: 300px; border-width: 2px">Читать все новости <i class="fa fa-angle-right" aria-hidden="true"></i></button>
       </div>
     </div>
 
@@ -251,7 +251,83 @@
       </div>
     </div>
 
+    
+    <!-- modal -->
+    <div class="modal fade" id="regModal" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
 
+                <div class="card card-default">
+                    <div class="card-header">Регистрация</div>
+                    <div class="card-body">
+                        <form class="p-4" method="POST" action="https://goldbit.one/register">
+                            <input type="hidden" name="_token" value="Nqejp5XFtMzNUscRlUdPn13pOROfE4TD5f6X4tse">
+
+                            <div class="form-group row">
+                                <label for="name" class="col-md-4 control-label">Ваше Имя</label>
+
+                                <div class="col-md-6">
+                                    <input id="name" type="text" class="form-control" name="name"
+                                           value="" required autofocus>
+
+                                                                    </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="email" class="col-md-4 control-label">Ваша Эл.
+                                    Почта</label>
+
+                                <div class="col-md-6">
+                                    <input id="email" type="email" class="form-control" name="email"
+                                           value="" required>
+
+                                                                    </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="password" class="col-md-4 control-label">Пароль</label>
+
+                                <div class="col-md-6">
+                                    <input id="password" type="password" class="form-control"
+                                           name="password" required>
+
+                                                                    </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="password-confirm" class="col-md-4 control-label">Повторить
+                                    Пароль</label>
+
+                                <div class="col-md-6">
+                                    <input id="password-confirm" type="password"
+                                           class="form-control" name="password_confirmation"
+                                           required>
+                                </div>
+                
+                            </div>
+              <div class="form-group row">
+              <label for="checkbox-confirm" class="col-sm-2 checkbox-label"><input id="checkbox-confirm" type="checkbox"
+                                           class="form-control" name="checkbox_policy"
+                                           required></label>
+              <div class="col-sm-10">
+                       <a class="privacy_a" href="/new/privacy">Я согласен с условиями данного соглашения</a>
+                            </div>
+              </div>
+                            <div class="form-group row">
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        Регистрация
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 
 
