@@ -11,7 +11,7 @@ a.nav-link:hover{
 }
 .bg1{
 	height: 90vh;
-	background: linear-gradient(to right,rgba(0, 0, 0,1),rgba(0, 0, 0,.0)), url(../img/st.png) no-repeat fixed;
+	background: linear-gradient(to right,rgba(0, 0, 0,1),rgba(0, 0, 0,.0)), url(../img/st2.jpg) no-repeat fixed;
 	background-position: center;
 	background-size: cover;
 	background-color: rgba(0,0,0,0.5);
