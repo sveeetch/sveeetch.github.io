@@ -1,6 +1,9 @@
 a.nav-link:hover{
 	color: #CFBD61 !important;
 }
+.bg-transperent{
+	background: transparent;
+}
 .mainButton{
 	background: rgb(237,199,102);
 	background: -moz-linear-gradient(top, rgba(237,199,102,1) 0%, rgba(128,93,41,1) 100%);
