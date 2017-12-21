@@ -2,7 +2,7 @@ a.nav-link:hover{
 	color: #CFBD61 !important;
 }
 .bg-transperent{
-	background: transparent;
+	background-color: transparent !important;
 }
 .mainButton{
 	background: rgb(237,199,102);
