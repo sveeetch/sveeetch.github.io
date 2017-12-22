@@ -14,7 +14,7 @@ a.nav-link:hover{
 }
 .bg1{
 	height: 90vh;
-	background: linear-gradient(to right,rgba(0, 0, 0,0.5),rgba(0, 0, 0,.0)), url(../img/dubai.jpg) no-repeat fixed;
+	background: linear-gradient(to right,rgba(0, 0, 0,0.5),rgba(0, 0, 0,.5)), url(../img/dubai.jpg) no-repeat fixed;
 	background-position: bottom;
 	background-size: cover;
 	background-color: rgba(0,0,0,0.5);
