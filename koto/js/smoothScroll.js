@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
   // Add smooth scrolling on all links inside the navbar
-  $("#cover a").on('click', function(event) {
+  $("a").on('click', function(event) {
     // Make sure this.hash has a value before overriding default behavior
     if (this.hash !== "") {
       // Prevent default anchor click behavior

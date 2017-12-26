@@ -53,7 +53,7 @@
         class="collapse navbar-collapse justify-content-end"
         id="navbarNavAltMarkup">
         <div class="navbar-nav ">
-          <a class="nav-item nav-link text-uppercase mx-3 active" href="#">Домой</a>
+          <a class="nav-item nav-link text-uppercase mx-3 active" href="#">Главная</a>
           <a class="nav-item nav-link text-uppercase mx-3" href="service">Услуги</a>
           <a class="nav-item nav-link text-uppercase mx-3" href="blog" data-toggle="tooltip" data-placement="bottom" title="Здесь вы можете следить за нашими новостями и находить ответы на волнующие вас вопросы">Блог</a>
           <a class="nav-item nav-link text-uppercase mx-3" href="contacts">Контакты</a>
@@ -123,11 +123,10 @@
             </span>
             <span class="col-12 col-md-6">
               <li>появление залысин;</li>
-              <li>выделения из глаз, носа;</li>
+              <li>выделения из глаз, носа, влагалища, припуции;</li>
               <li>повышенная или пониженная температура;</li>
-              <li>кровь в выделениях, затрудненное мочеиспускание или вовсе его прекращение;
-                диарея, рвота
-              </li>
+              <li>затрудненное мочеиспускание или полное его отсутствие</li>
+              <li>диарея, рвота</li>
             </span>
           </ul>
         </div>
@@ -137,8 +136,8 @@
           <h2 class="card-header text-center mb-3 text-orange">
             Вам стоит помнить!
           </h2>
-          <p>Если один из этих симптомов сошлись с симптомами вашего животного - то вероятнее всего, что ваш питомец уже заболел.</p>
-          <p>В таком случае стоит действовать без промедления, и сразу <strong>обратиться к специалисту</strong>. Сэкономьте ваше время деньги!</p>
+          <p>Если один из вышеперечисленных клиничеких признаков сошелся с симптомами вашего питомца - мы рекомендуем немедленно обратиться в клинику для .</p>
+          <p>Это может быть признаком заболевания.!</p>
         </div>
       </div>
       <div class="col-12 d-flex justify-content-center mt-3 pb-5">
@@ -492,12 +491,12 @@
           <div class="col-12 col-md-6 col-xl-5">
             <h4>Хотите получить ещё интересных фактов?</h4>
             <p class="lead">Мы можем поделиться с вами "Топ-5 необходимых фактов, для любителей животных"</p>
-            <button class="btn btn-dark1-outline mt-3 p-3 px-5">Получить</button>
+            <button class="btn btn-dark1-outline mt-3 p-3 px-5" data-toggle="modal" data-target="#giveArticleModal">Получить</button>
           </div>
         </div>
       </div>
       <!-- Modal -->
-      <div class="modal fade bd-example-modal-lg" id="callbackModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade bd-example-modal-lg" id="giveArticleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -507,7 +506,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <p сlass="lead">
+              <p class="lead">
                 Оставьте ваш email и в ближайшее время мы отправим вам на почту уникальную статью.
               </p>
               <form action="email_fact.php">
@@ -515,6 +514,8 @@
                   <div class="form-group col-12 col-md-6">
                     <label for="email" class="col-form-label">Ваш email</label>
                     <input required class="form-control" type="email" placeholder="example@mail.com" minlength="7" value="" id="mail">
+                    <label for="name" class="col-form-label">Ваше имя</label>
+                    <input required class="form-control" type="name" placeholder="Ираклий" minlength="2" value="" id="mail">
                   </div>
                 </div>
               </form>
@@ -611,7 +612,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <p сlass="lead">
+            <p class="lead">
               Оставьте ваш телефон и в ближайшее время мы вас наберем.
             </p>
             <form action="callback.php">
@@ -624,6 +625,7 @@
                     <option>Стрижка питомца</option>
                     <option>Вакцинация питомца</option>
                     <option>Консультация у врача</option>
+                    <option>Хирургическое вмешательство</option>
                   </select>
                 </div>
                 <div class="form-group col-12 col-md-6">
