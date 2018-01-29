@@ -26,24 +26,19 @@
     <head>
         <meta charset="utf-8">
         <title>Подключение внешних скриптов</title>
-        <script src="particles.js"></script>
     </head>
     <body>
-        <div id="bg"></div>
-
-		<section>
-		<div class="text">
-		    <h1>Particle background.</h1>
+        <div id="particles-js"></div>
+		<div id="page-wrapper">
+			 <h1>Particle background.</h1>
 		    <p>In my opinion the particles make for a nice background imitating stars.</p>
 		</div>
-		</section>
 		
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script>
-		$(function(){
-		var pJS = particlesJS.load('bg', 'particles.json');
-		});
-		</script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" defer></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js" defer></script>
+
+
+		<script src="script.js" defer></script>
     </body>
 
 </html>
