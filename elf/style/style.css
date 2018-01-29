@@ -1,53 +1,11 @@
+body{
+  font-family: 'Blogger' !important;
+    font-style: normal;
+}
 .bg1{
 	height: 100vh;
-	background: linear-gradient(to top, rgba(233, 178, 255, 0.75), rgba(81, 223, 255, 0.3)), url(../img/bg1.jpg) no-repeat fixed;
+	background: linear-gradient(to top, rgba(255, 255, 255, 0.63), rgba(255, 255, 255, 0.67)), url(../img/bg1.jpg) no-repeat fixed;
 	background-position: center;
 	background-size: cover;
 	background-color: #343A40;
-
-*, *:before, *:after {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  height: 100%;
-}
-
-body {
-  overflow: hidden;
-}
-
-canvas {
-  display: block;
-  vertical-align: bottom;
-}
-
-#particles-js {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #131623;
-  
-  // &:before {
-  //   content: '';
-  //   display: block;
-  //   position: absolute;
-  //   width: 100%;
-  //   height: 100%;
-  //   top: 0;
-  //   right: 0;
-  //   bottom: 0;
-  //   left: 0;
-  //   background: rgba(0, 0, 0, .7);
-  //   z-index: 1;
-  // }
-}
-
-.gradient {
-  -webkit-background: linear-gradient(rgba(226, 70, 107, 0.95), rgba(255, 147, 52, 0.95));
-  -ms-background: linear-gradient(rgba(226, 70, 107, 0.95), rgba(255, 147, 52, 0.95));
-  -moz-background: linear-gradient(rgba(226, 70, 107, 0.95), rgba(255, 147, 52, 0.95));
-  -o-background: linear-gradient(rgba(226, 70, 107, 0.95), rgba(255, 147, 52, 0.95));
-  background: linear-gradient(rgba(226, 70, 107, 0.95), rgba(255, 147, 52, 0.95));
 }
