@@ -1,1 +1,1 @@
-particlesJS..load('bg', 'parcticle.json');
+particlesJS.load('bg', 'parcticle.json');
