@@ -1,7 +1,7 @@
 * {
   margin: 0;
   &::selection {
-    background: rgba(256,256,256,.1);
+    background: rgba(256,256,256,.10);
   }
 }
 body {
