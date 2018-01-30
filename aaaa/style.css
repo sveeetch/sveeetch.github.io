@@ -11,7 +11,7 @@ body {
   bottom: 0;
   right: 0;
   height: 100vh;
-  background: linear-gradient(to top,rgba(0, 0, 0,.7),rgba(0, 0, 0,.7)), url(space.jpg) no-repeat fixed;
+  background: linear-gradient(to top,rgba(0, 0, 0,.7),rgba(0, 0, 0,.7)), url(space2.jpg) no-repeat fixed;
   background-position: center;
   background-size: cover;
   background-color: #343A40;
