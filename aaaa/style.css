@@ -8,10 +8,12 @@ body {
   left: 0;
   bottom: 0;
   right: 0;
+  height: 100vh;
   background: linear-gradient(to top,rgba(0, 0, 0,.9),rgba(0, 0, 0,.9)), url(space.jpg) no-repeat fixed;
   background-position: center;
   background-size: cover;
   background-color: #343A40;
+  z-index: -100;
 }
 #page-wrapper{
   margin: auto;
@@ -20,4 +22,5 @@ body {
   top: 50%;
   width: 100%;
   text-align: center;
+  z-index: 100;
 }
