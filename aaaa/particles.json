@@ -26,12 +26,12 @@
       }
     },
     "opacity": {
-      "value": 0.5,
+      "value": 0.9,
       "random": true,
       "anim": {
         "enable": true,
-        "speed": 0.1,
-        "opacity_min": 0.2,
+        "speed": 1,
+        "opacity_min": 0.7,
         "sync": false
       }
     },
@@ -54,7 +54,7 @@
     },
     "move": {
       "enable": true,
-      "speed": 0.2,
+      "speed": 2,
       "direction": "none",
       "random": true,
       "straight": false,
