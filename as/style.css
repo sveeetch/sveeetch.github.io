@@ -66,6 +66,11 @@ body {
   border:3px solid #141A3D !important;
   color: #aaaaaa !important;
 }
+.btn-custom-2:hover{
+  background-color: #141A3D ;
+  background-image: none;
+  color: #aaaaaa !important;
+}
 .fz-1{
   font-size: 14px !important;
 }
