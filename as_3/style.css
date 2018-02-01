@@ -4,9 +4,22 @@ body {
   margin:0;
   padding: 0;
 }
-/*#mainBlock{
+#particles-js{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100vh;
+  background: linear-gradient(to top,rgba(0, 0, 0,.7),rgba(0, 0, 0,.7)), url(img/space2.jpg) no-repeat fixed;
+  background-position: center;
+  background-size: cover;
+  background-color: #343A40;
+  z-index: -100;
+}
+#mainBlock{
   min-height: 60vh;
-}*/
+}
 /*#page-wrapper{
   margin: auto;
   position: absolute;
@@ -46,6 +59,18 @@ body {
   background: -webkit-linear-gradient(left, rgba(50,159,255,1) 0%,rgba(255,161,89,1) 100%);
   background: linear-gradient(to right, rgba(50,159,255,1) 0%,rgba(255,161,89,1) 100%);
 }
+.bg6{
+  background: rgb(196,208,238);
+  background: -moz-linear-gradient(left, rgba(196,208,238,1) 0%, rgba(210,162,131,1) 100%);
+  background: -webkit-linear-gradient(left, rgba(196,208,238,1) 0%,rgba(210,162,131,1) 100%);
+  background: linear-gradient(to right, rgba(196,208,238,1) 0%,rgba(210,162,131,1) 100%);
+}
+.bg7{
+  background: rgb(90,88,99);
+  background: -moz-linear-gradient(left, rgba(90,88,99,1) 1%, rgba(171,129,107,1) 100%);
+  background: -webkit-linear-gradient(left, rgba(90,88,99,1) 1%,rgba(171,129,107,1) 100%);
+  background: linear-gradient(to right, rgba(90,88,99,1) 1%,rgba(171,129,107,1) 100%);
+}
 .b-10{
   border: 10px solid rgba(0,0,0, 0.6);
 }
@@ -54,6 +79,7 @@ body {
   border-radius: 1px !important;
   border:3px solid #040030 !important;
   color: #ffffff !important;
+  letter-spacing: 2px;
 }
 .btn-custom-1:hover{
   background-color: #141A3D ;
@@ -161,37 +187,3 @@ a.btn-custom-3.btn-custom-3:after {
 .list-9{
   list-style-image: url(img/list/9.png);
 }
-
-
-.is_overlay{ display: block; width: 100%; height: 100%; }
-#trailer {
-  position: fixed;
-  top: 0; right: 0; bottom: 0; left: 0;
-  overflow: hidden;
-  z-index: -100;
-
-}
-
-#trailer > video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%; 
-min-height: 100%;
-width: auto; height: auto; 
-z-index: -100;
-}
- @media (min-aspect-ratio: 16/9) {
-     #trailer > video { height: 300%; top: -100%; }
- }
- @media (max-aspect-ratio: 16/9) {
-     #trailer > video { width: 300%; left: -100%; }
- }
- /* Если есть поддержка object-fit (Chrome/Chrome для Android, Safari в iOS 8 и Opera), используем его: */
- @supports (object-fit: cover) {
-     #trailer > video {
-         top: 0; left: 0;
-         width: 100%; height: 100%;
-         object-fit: cover;
-     }
- }
