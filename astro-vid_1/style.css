@@ -4,9 +4,9 @@ body {
   margin:0;
   padding: 0;
 }
-#mainBlock{
+/*#mainBlock{
   min-height: 60vh;
-}
+}*/
 /*#page-wrapper{
   margin: auto;
   position: absolute;
@@ -40,7 +40,12 @@ body {
   background-color: #000;
   z-index: -50;
 }
-
+.bg5{
+  background: rgb(50,159,255);
+  background: -moz-linear-gradient(left, rgba(50,159,255,1) 0%, rgba(255,161,89,1) 100%);
+  background: -webkit-linear-gradient(left, rgba(50,159,255,1) 0%,rgba(255,161,89,1) 100%);
+  background: linear-gradient(to right, rgba(50,159,255,1) 0%,rgba(255,161,89,1) 100%);
+}
 .b-10{
   border: 10px solid rgba(0,0,0, 0.6);
 }
