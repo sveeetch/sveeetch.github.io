@@ -21,6 +21,12 @@ body {
 .vh75{
   min-height: 75vh !important; 
 }
+.vh60{
+  min-height: 60vh !important; 
+}
+.vh50{
+  min-height: 50vh !important; 
+}
 .bg1{
   background-color: rgba(255, 255, 255, 0.7);
 }
