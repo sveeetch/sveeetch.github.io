@@ -26,13 +26,16 @@
 
       .parallax__layer--base {
         transform: translateZ(0);
+        z-index: 1;
       }
 
       .parallax__layer--back {
         transform: translateZ(-2px) scale(3);
+        z-index: 2;
       }
       .parallax__layer--deep {
         transform: translateZ(-5px) scale(5);
+        z-index: 1;
       }
       .parallax__group {
         position: relative;
@@ -47,11 +50,28 @@
       .style:nth(odd){
         background: #aaaaaa;
       }
+      .bg-header{
+        background: -webkit-linear-gradient(bottom, rgba(73, 86, 43,.3), rgba(0, 0, 0,.7)), url(bg-header.jpg) no-repeat fixed;
+        background: -o-linear-gradient(bottom, rgba(73, 86, 43,.3), rgba(0, 0, 0,.7)), url(bg-header.jpg) no-repeat fixed;
+        background: linear-gradient(to top, rgba(73, 86, 43,.3), rgba(0, 0, 0,.7)), url(bg-header.jpg) no-repeat fixed;
+        background-position: center;
+        background-size: cover;
+        min-height: 90vh;
+      }
+      .vh-100{
+        min-height: 100vh;
+      }
+      .vh-90{
+        min-height: 90vh;
+      }
+      .vh-75{
+        min-height: 75vh;
+      }
     </style>
     <title>Hello, world!</title>
   </head>
   <body>    
-    <div class="parallax">
+    <div class="parallax bg-header">
       <div class="parallax__group ">
         <div class="parallax__layer parallax__layer--deep">
           <img src="leaves-2.png" alt="" class="img-fluid d-none d-md-block">
@@ -66,65 +86,28 @@
           <img src="leaves-md-1.png" alt="" class="img-fluid d-md-none">
         </div>
         <div class="parallax__layer parallax__layer--base row">
-          <div class="col style">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore provident possimus accusamus ea est asperiores illum eius iste, dolores modi, beatae assumenda corrupti culpa ab saepe exercitationem molestias. Ex, reiciendis?</p>
+          <div class="container-fluid vh-90 text-center text-light d-flex justify-content-center align-items-center">  
+          <div class="container text-center">
+            <div class="row text-center justify-content-center">
+              <h1 class="text-center">Открывайте второе дыхвание вместе с endorphin</h1>
+              <p class="lead text-center">Фитнес-тур, который поможет вам отвлечься от серых будней и погрузиться в атмосферу спокойствия</p>
+              <a href="#" class="w-100 text-center"><button class="btn btn-success">Узнать больше</button></a>
+            </div>
           </div>
-          <div class="col style">
-            <p>Omnis voluptas molestiae quas expedita modi eum sequi nam veniam obcaecati, voluptatum fuga facere, maxime minus vitae doloribus laboriosam neque? Assumenda illo dolor ut consectetur ex debitis aliquam aspernatur distinctio!</p>
           </div>
-          <div class="col style">
-            <p>Quia odit aperiam obcaecati dolor repellat facilis nostrum molestias doloremque atque sed, temporibus quod qui illum dicta repudiandae a nulla consequuntur eaque dolores consectetur, saepe in. Sed nesciunt cumque nisi.</p>
+          <div class="container-fluid my-5">
+            <div class="container">
+              <div class="row text-light">
+                <h2 class="w-100 text-center mb-5">Что вас ждёт?</h2>
+                <div class="col-12 col-md-4"><h3 class="h4">Здоровое питание</h3><p class="lead">Интересные и вкусные блюда,  которые будут насыщать всеми питательными и полезными элементами</p></div>
+                <div class="col-12 col-md-4"><h3 class="h4">Универсальные тренировки</h3><p class="lead">Тренировки будут проходить с тренером-профессионалом, который любит своё дело и сделает всё, чтобы вдохновлять и мотивировать на продуктивность</p></div>
+                <div class="col-12 col-md-4"><h3 class="h4">Новые свершения</h3><p class="lead">Походы в горы и прогулки по горной местности пленят ваши сердца и вам захочется возвращаться сюда снова и снова</p></div>
+              </div>
+            </div>
           </div>
-          <div class="col style">
-            <p>Laboriosam error cum quae blanditiis tempore hic quidem, soluta autem asperiores optio cupiditate eos numquam magni illum voluptatem maxime ratione eaque possimus quis explicabo quod laborum. Aut odio, magnam officia.</p>
-          </div>
-          <div class="col style">
-            <p>Ipsa, facere suscipit nobis deserunt iure rem autem obcaecati expedita quibusdam ducimus consequatur dolores sed voluptatum veniam, quia, doloremque sit voluptatibus repellat nulla, iusto repellendus accusantium debitis tempora! Eligendi, aliquam!</p>
-          </div>
         </div>
       </div>
-      <div class="container my-5">
-        <div class="row">
-          <div class="col">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero suscipit quidem, ipsa deserunt deleniti assumenda modi, dolorum culpa, tenetur inventore accusamus aut repellat? Quis modi debitis quam, quas molestiae id?</div>
-          <div class="col">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni sit assumenda laudantium ea molestias dolor quisquam culpa perferendis accusantium, deserunt quam quos asperiores fuga, aperiam provident, odio cupiditate repudiandae facere!</div>
-          <div class="col">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, architecto, ut! Harum hic minima repudiandae accusamus sunt laudantium eligendi nam non doloremque, totam repellat placeat dolores est quisquam commodi minus.</div>
-          <div class="col">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic labore officiis aliquid unde error vitae nemo sunt impedit dolorum quis! Sed facilis, voluptates necessitatibus unde cum. Maxime veniam, ab dolorem.</div>
-        </div>
-      </div>
-      <div class="container my-5">
-        <div class="row">
-          <div class="col">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero suscipit quidem, ipsa deserunt deleniti assumenda modi, dolorum culpa, tenetur inventore accusamus aut repellat? Quis modi debitis quam, quas molestiae id?</div>
-          <div class="col">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni sit assumenda laudantium ea molestias dolor quisquam culpa perferendis accusantium, deserunt quam quos asperiores fuga, aperiam provident, odio cupiditate repudiandae facere!</div>
-          <div class="col">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, architecto, ut! Harum hic minima repudiandae accusamus sunt laudantium eligendi nam non doloremque, totam repellat placeat dolores est quisquam commodi minus.</div>
-          <div class="col">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic labore officiis aliquid unde error vitae nemo sunt impedit dolorum quis! Sed facilis, voluptates necessitatibus unde cum. Maxime veniam, ab dolorem.</div>
-        </div>
-      </div>
-      <div class="container my-5">
-        <div class="row">
-          <div class="col">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero suscipit quidem, ipsa deserunt deleniti assumenda modi, dolorum culpa, tenetur inventore accusamus aut repellat? Quis modi debitis quam, quas molestiae id?</div>
-          <div class="col">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni sit assumenda laudantium ea molestias dolor quisquam culpa perferendis accusantium, deserunt quam quos asperiores fuga, aperiam provident, odio cupiditate repudiandae facere!</div>
-          <div class="col">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, architecto, ut! Harum hic minima repudiandae accusamus sunt laudantium eligendi nam non doloremque, totam repellat placeat dolores est quisquam commodi minus.</div>
-          <div class="col">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic labore officiis aliquid unde error vitae nemo sunt impedit dolorum quis! Sed facilis, voluptates necessitatibus unde cum. Maxime veniam, ab dolorem.</div>
-        </div>
-      </div>
-      <div class="container my-5">
-        <div class="row">
-          <div class="col">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero suscipit quidem, ipsa deserunt deleniti assumenda modi, dolorum culpa, tenetur inventore accusamus aut repellat? Quis modi debitis quam, quas molestiae id?</div>
-          <div class="col">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni sit assumenda laudantium ea molestias dolor quisquam culpa perferendis accusantium, deserunt quam quos asperiores fuga, aperiam provident, odio cupiditate repudiandae facere!</div>
-          <div class="col">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, architecto, ut! Harum hic minima repudiandae accusamus sunt laudantium eligendi nam non doloremque, totam repellat placeat dolores est quisquam commodi minus.</div>
-          <div class="col">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic labore officiis aliquid unde error vitae nemo sunt impedit dolorum quis! Sed facilis, voluptates necessitatibus unde cum. Maxime veniam, ab dolorem.</div>
-        </div>
-      </div>
-      <div class="container my-5">
-        <div class="row">
-          <div class="col">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero suscipit quidem, ipsa deserunt deleniti assumenda modi, dolorum culpa, tenetur inventore accusamus aut repellat? Quis modi debitis quam, quas molestiae id?</div>
-          <div class="col">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni sit assumenda laudantium ea molestias dolor quisquam culpa perferendis accusantium, deserunt quam quos asperiores fuga, aperiam provident, odio cupiditate repudiandae facere!</div>
-          <div class="col">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, architecto, ut! Harum hic minima repudiandae accusamus sunt laudantium eligendi nam non doloremque, totam repellat placeat dolores est quisquam commodi minus.</div>
-          <div class="col">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic labore officiis aliquid unde error vitae nemo sunt impedit dolorum quis! Sed facilis, voluptates necessitatibus unde cum. Maxime veniam, ab dolorem.</div>
-        </div>
-      </div>
-
-    </div>
+      
 
 
     <!-- Optional JavaScript -->
