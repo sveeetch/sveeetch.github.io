@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
-      body, h1, h2, h3, h4, h5, h6{
+      body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
         font-family: 'Montserrat', sans-serif;
         font-weight: 300;
       }
@@ -81,7 +81,7 @@
         font-size: 18px;
         text-transform: uppercase;
         text-align: center;
-        padding: 5px 30px;
+        padding: 10px 40px;
         border: 2px solid #156657;
         border-radius: 100px;
         transition: all 0.3s ease 0s;
@@ -512,7 +512,88 @@
 .hideme{
   opacity: 0;
 }
+.bg-isometric {
+  background:
+  linear-gradient(to bottom, #156657 1%, #156657 45%, rgba(23, 35, 42, 0) 100%),
+  radial-gradient(ellipse at bottom, rgba(23, 35, 42, 0) 0%, #156657 85%),
+  repeating-linear-gradient(150deg, #0b1d50, #0b1d50 1px, transparent 2px, transparent 80px) 0 0,
+  repeating-linear-gradient(30deg, #0b1d50, #0b1d50 1px, transparent 2px, transparent 80px) 0 0;
+  background-size:100%, 100%,160px 93px,160px 93px;
+  background-color: #156657;
+  color: #ffffff;
+}
 
+
+
+
+#hexagon {
+  width: 300px;
+  height: 200px;
+  background: #156657;
+  position: relative;
+  /*top:150px;
+  left: 50%;*/
+  z-index: 1;
+}
+#hexagon:before {
+    content: "";
+    position: absolute;
+    top: -75px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-bottom: 75px solid #156657;
+}
+#hexagon:after {
+  content: "";
+  position: absolute;
+  bottom: -75px; 
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-top: 75px solid #156657;
+}
+#price{
+    position: relative;
+    top: -6%;
+    left: -2%;
+    color: #ffffff;
+    font-size: 50px;
+    font-weight: 700;
+    z-index: 2;
+
+  -webkit-transform: rotate(45deg); //Chrome, Safari
+-moz-transform: rotate(45deg); //Firefox
+-o-transform: rotate(45deg); //Opera
+-ms-transform: rotate(45deg); //IE
+transform: rotate(45deg); //браузеры без префексов
+}
+.pulsate {
+    -webkit-animation: pulsate 3s ease-out;
+    -webkit-animation-iteration-count: infinite; 
+    opacity: 0.5;
+}
+@-webkit-keyframes pulsate {
+    0% { 
+        opacity: 0.5;
+    }
+    50% { 
+        opacity: 1.0;
+    }
+    100% { 
+        opacity: 0.5;
+    }
+}
+.bg-blue{
+background: #c5deea;
+background: -moz-linear-gradient(-45deg, #c5deea 0%, #8abbd7 31%, #066dab 100%);
+background: -webkit-linear-gradient(-45deg, #c5deea 0%,#8abbd7 31%,#066dab 100%);
+background: linear-gradient(135deg, #c5deea 0%,#8abbd7 31%,#066dab 100%);
+}
     </style>
     <title>ENDORPHIN TOUR - фитнес тур. Проведи отдых в тонусе.</title>
   </head>
@@ -568,7 +649,7 @@
                 <a href="#more" class="w-100 text-center"><button class="btn btn-default">Узнать больше</button></a>
               </div>
             </div>
-            <div class="animate-angle"><a href="#more"><i class="fa fa-angle-down"></i></a></div>
+            <!-- <div class="animate-angle"><a href="#more"><i class="fa fa-angle-down"></i></a></div> -->
           </div>
           <div class="container-fluid py-5 bg-light-08" id="more">
             <div class="container">
@@ -580,7 +661,7 @@
               </div>
             </div>
           </div>
-          <div class="container-fluid py-5 bg-green-08 text-center ">
+          <div class="container-fluid py-5 bg-isometric text-center ">
             <div class="container">
               <div class="row">
                 <div class="col-12 my-4"><h2>Получи максимальную пользу от отдыха</h2></div>
@@ -702,6 +783,44 @@
               <div class="desc"><img height="30px" src="icons/9.png" alt="">Далее настанет пора ехать в Ивано-Франковск. В 13.00 – выедем в Киев с кучей эмоций, фотографий, сториз)</div>
             </div>
           </li>
+        </ul>
+      </div>
+      
+      <div class="container-fluid py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-md-6 text-center">
+              <div class="border-left border-info">
+                <h3 class="display-4 text-center mt-5">Стоимость тура:</h3>
+                <h4 class="h3 text-center">При оплате до 09.04.18*</h4>
+              </div>
+              <small>*При оплате в период с 10.04.19 до 17.04.18 - стоимость будет составлять 6350грн.</small>
+            </div>
+            <div class="col-12 col-md-6">
+              <div id="hexagon"></div>
+              <div id="price" class="pulsate">
+                <p>5999грн</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid bg-blue py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-12"><h4 class="text-center text-light display-4">До начала поездки осталось:</h4></div>
+            <div class="col-12"><script src="http://megatimer.ru/s/f929229651d1b858f53950287314eb61.js"></script></div>
+          </div>
+          <div class="row mt-5 text-center text-light">
+            <div class="col-12">
+              <h4 class="h2">Успей забронировать место</h4>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-default">Забронировать</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
     <!-- Optional JavaScript -->
