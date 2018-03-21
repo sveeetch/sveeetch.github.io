@@ -62,6 +62,28 @@
         background-size: cover;
         min-height: 90vh;
       }
+      @media (max-width: 768px) {
+        .bg-header{
+          background-image: url(bg-header.jpg);
+          background-position: center;
+          background-size: cover;
+          min-height: 90vh;
+        }   
+      }
+      .bg-illustration{
+        background: -webkit-linear-gradient(bottom, rgba(73, 86, 43,.3), rgba(0, 0, 0,.7)), url(illustration.png) no-repeat ;
+        background: -o-linear-gradient(bottom, rgba(73, 86, 43,.3), rgba(0, 0, 0,.7)), url(illustration.png) no-repeat ;
+        background: linear-gradient(to top, rgba(73, 86, 43,.3), rgba(0, 0, 0,.7)), url(illustration.png) no-repeat ;
+        background-position: center;
+        background-size: cover;
+      }
+      /*@media (max-width: 768px) {
+        .bg-illustration{
+          background-image: url(illustration.png);
+          background-position: center;
+          background-size: cover;
+        }   
+      }*/
       .vh-100{
         min-height: 100vh;
       }
@@ -594,6 +616,21 @@ background: -moz-linear-gradient(-45deg, #c5deea 0%, #8abbd7 31%, #066dab 100%);
 background: -webkit-linear-gradient(-45deg, #c5deea 0%,#8abbd7 31%,#066dab 100%);
 background: linear-gradient(135deg, #c5deea 0%,#8abbd7 31%,#066dab 100%);
 }
+
+.footer{
+  background-color: #3F4043;
+  color: #ffffff;
+}
+.footer h5{
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #00cea8;
+}
+.footer-nav{
+  background-color: #323438;
+  font-weight: 500;
+  letter-spacing: 2pt;
+}
     </style>
     <title>ENDORPHIN TOUR - фитнес тур. Проведи отдых в тонусе.</title>
   </head>
@@ -680,8 +717,8 @@ background: linear-gradient(135deg, #c5deea 0%,#8abbd7 31%,#066dab 100%);
         </div>
       </div>
       <div class="container-fluid ">
-        <h2 class="display-3 text-center mt-5">Детали тура</h2>
-        <h2 class="display-4 text-center mt-5">Даты тура: 28.04.18&nbsp;-&nbsp;06.05.18</h2>
+        <h2 class="h3 text-center mt-5">Детали тура</h2>
+        <h2 class="h4 text-center mt-5">Даты тура: 28.04.18&nbsp;-&nbsp;06.05.18</h2>
         <ul class="timeline">
           <!-- Item 1 -->
           <li class="hideme">
@@ -704,7 +741,7 @@ background: linear-gradient(135deg, #c5deea 0%,#8abbd7 31%,#066dab 100%);
                 <span class="flag">Путь</span>
                 <span class="time-wrapper"><span class="time">2</span></span>
               </div>
-              <div class="desc"><img height="30px" src="icons/2.png" alt="">Вы сразу раззнакомитесь в пути, ведь это будут однодумцы, которые каждый день будут мотивировать на новые подвиги и свершения, станут очень близкими за этот уикэнд.</div>
+              <div class="desc"><img height="30px" src="icons/2.png" alt=""> Вы сразу раззнакомитесь в пути, ведь это будут однодумцы, которые каждый день будут мотивировать на новые подвиги и свершения, станут очень близкими за этот уикэнд.</div>
             </div>
           </li>
           <!-- xxxxxx -->
@@ -715,7 +752,7 @@ background: linear-gradient(135deg, #c5deea 0%,#8abbd7 31%,#066dab 100%);
                 <span class="flag">Заселение</span>
                 <span class="time-wrapper"><span class="time">3</span></span>
               </div>
-              <div class="desc"><img height="30px" src="icons/3.png" alt="">Местом проживания будет красивейшое место Карпат – Верховина.</div>
+              <div class="desc"><img height="30px" src="icons/3.png" alt=""> Местом проживания будет красивейшое место Карпат – Верховина.</div>
             </div>
           </li>
           <!-- xxxxx -->
@@ -726,7 +763,7 @@ background: linear-gradient(135deg, #c5deea 0%,#8abbd7 31%,#066dab 100%);
                 <span class="flag">Питание</span>
                 <span class="time-wrapper"><span class="time">4</span></span>
               </div>
-              <div class="desc"><img height="30px" src="icons/4.png" alt="">Мы позаботимся о нашем правильном питании, которое будет включать три основных приема пищи + перекусы. Некоторые блюда Вас приятно удивят</div>
+              <div class="desc"><img height="30px" src="icons/4.png" alt=""> Мы позаботимся о нашем правильном питании, которое будет включать три основных приема пищи + перекусы. Некоторые блюда Вас приятно удивят</div>
             </div>
           </li>
           <!-- xxxxxx -->
@@ -737,7 +774,7 @@ background: linear-gradient(135deg, #c5deea 0%,#8abbd7 31%,#066dab 100%);
                 <span class="flag">Тренировки</span>
                 <span class="time-wrapper"><span class="time">5</span></span>
               </div>
-              <div class="desc"><img height="30px" src="icons/5.png" alt="">Каждый день будут проходить две тренировки – утром и вечером, которые будут подобраны под интенсивность каждого дня.</div>
+              <div class="desc"><img height="30px" src="icons/5.png" alt=""> Каждый день будут проходить две тренировки – утром и вечером, которые будут подобраны под интенсивность каждого дня.</div>
             </div>
           </li>
           <!-- xxxxx -->
@@ -748,7 +785,7 @@ background: linear-gradient(135deg, #c5deea 0%,#8abbd7 31%,#066dab 100%);
                 <span class="flag">Спорт-досуг</span>
                 <span class="time-wrapper"><span class="time">6</span></span>
               </div>
-              <div class="desc"><img height="30px" src="icons/6.png" alt="">За уикенд мы посетим три горы, в т.ч. наивысшую точку Карпат – Говерлу. Также проведем познавательные экскурсии, посетим месторождение воды, которая горит, погостим в колыбе с домашними сырами, попаримся в сауне)</div>
+              <div class="desc"><img height="30px" src="icons/6.png" alt=""> За уикенд мы посетим три горы, в т.ч. наивысшую точку Карпат – Говерлу. Также проведем познавательные экскурсии, посетим месторождение воды, которая горит, погостим в колыбе с домашними сырами, попаримся в сауне)</div>
             </div>
           </li>
           <!-- xxxxxx -->
@@ -759,7 +796,7 @@ background: linear-gradient(135deg, #c5deea 0%,#8abbd7 31%,#066dab 100%);
                 <span class="flag">Полезные беседы</span>
                 <span class="time-wrapper"><span class="time">7</span></span>
               </div>
-              <div class="desc"><img height="30px" src="icons/7.png" alt="">Мы подготовим самую свежую и актуальную информацию о продуктах питания, разберем Ваш рацион, ответим на все интересующие Вас вопросы, расскажем всё с точки зрения нутрициологии, поговорим о саморазвитии.</div>
+              <div class="desc"><img height="30px" src="icons/7.png" alt=""> Мы подготовим самую свежую и актуальную информацию о продуктах питания, разберем Ваш рацион, ответим на все интересующие Вас вопросы, расскажем всё с точки зрения нутрициологии, поговорим о саморазвитии.</div>
             </div>
           </li>
           <!-- xxxxx -->
@@ -770,7 +807,7 @@ background: linear-gradient(135deg, #c5deea 0%,#8abbd7 31%,#066dab 100%);
                 <span class="flag">Итоги</span>
                 <span class="time-wrapper"><span class="time">8</span></span>
               </div>
-              <div class="desc"><img height="30px" src="icons/8.png" alt="">Мы подведем итоги нашего тура и наградим самых активных). </div>
+              <div class="desc"><img height="30px" src="icons/8.png" alt=""> Мы подведем итоги нашего тура и наградим самых активных). </div>
             </div>
           </li>
           <li class="hideme">
@@ -780,7 +817,7 @@ background: linear-gradient(135deg, #c5deea 0%,#8abbd7 31%,#066dab 100%);
                 <span class="flag">Сбор, выезд</span>
                 <span class="time-wrapper"><span class="time">9</span></span>
               </div>
-              <div class="desc"><img height="30px" src="icons/9.png" alt="">Далее настанет пора ехать в Ивано-Франковск. В 13.00 – выедем в Киев с кучей эмоций, фотографий, сториз)</div>
+              <div class="desc"><img height="30px" src="icons/9.png" alt=""> Далее настанет пора ехать в Ивано-Франковск. В 13.00 – выедем в Киев с кучей эмоций, фотографий, сториз)</div>
             </div>
           </li>
         </ul>
@@ -788,24 +825,24 @@ background: linear-gradient(135deg, #c5deea 0%,#8abbd7 31%,#066dab 100%);
       
       <div class="container-fluid py-5">
         <div class="container">
-          <div class="row">
-            <div class="col-12 col-md-6 text-center">
-              <div class="border-left border-info">
+          <div class="row justify-content-center">
+            <div class="col-12 col-md-6 text-center border-left border-info">
+              <div class="">
                 <h3 class="display-4 text-center mt-5">Стоимость тура:</h3>
-                <h4 class="h3 text-center">При оплате до 09.04.18*</h4>
+                <!-- <h4 class="h3 text-center">При оплате до 09.04.18*</h4> -->
               </div>
-              <small>*При оплате в период с 10.04.19 до 17.04.18 - стоимость будет составлять 6350грн.</small>
+              <small>*При оплате в период с 17.04.19 до 24.04.18, стоимость будет составлять&nbsp;-&nbsp;6350грн.</small>
             </div>
-            <div class="col-12 col-md-6">
-              <div id="hexagon"></div>
-              <div id="price" class="pulsate">
-                <p>5999грн</p>
-              </div>
+            <div class="col-12 col-md-6 d-flex justify-content-center">
+              <!-- <div id="hexagon"></div> -->
+              <!-- <div id="price" class="pulsate"> -->
+                <img src="price.png" alt="" class="img-fluid">
+              <!-- </div> -->
             </div>
           </div>
         </div>
       </div>
-      <div class="container-fluid bg-blue py-5">
+      <!-- <div class="container-fluid bg-blue py-5">
         <div class="container">
           <div class="row">
             <div class="col-12"><h4 class="text-center text-light display-4">До начала поездки осталось:</h4></div>
@@ -820,6 +857,90 @@ background: linear-gradient(135deg, #c5deea 0%,#8abbd7 31%,#066dab 100%);
             </div>
           </div>
         </div>
+      </div> -->
+      <div class="container-fluid py-5 bg-illustration">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-8 text-light">
+              <h3 class="h3 text-center">Предварительная запись</h3>
+              <form>
+                <div class="form-group">
+                  <label for="exampleInputName">Ваше имя</label>
+                  <input type="name" class="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="Введите имя">
+                  <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Ваш e-mail</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите e-mail">
+                  <small id="emailHelp" class="form-text text-muted">На почту придёт письмо с анкетой</small>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputTel1">Ваш телефон</label>
+                  <input type="tel" class="form-control" id="exampleInputTel1" placeholder="Введите ваш телефон">
+                </div>
+                <button type="submit" class="btn btn-default">Записаться</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+      <div class="container-fluid footer ">
+        <div class="row d-flex justify-content-between">
+          <div class="col-md-9 row">
+            <div class="h2 col-12 mt-3">ENDORPHIN TOUR</div>
+            <div class="col-sm-4">
+              <h5>Контакты</h5>
+              <p>
+                066 922 92 99
+                Татьяна
+              </p>
+            </div>
+            <div class="col-12">
+              <p><small>© 2018 ENDORPHIN TOUR</small></p>
+            </div>
+          </div>
+          <div class="col-md-3 footer-nav text-orange">
+            <div class="h2 text-orange mt-3">
+              <a href="https://www.facebook.com//" class="text-orange"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+              <a href="https://www.instagram.com//" class="text-orange"><i class="fa fa-instagram ml-2" aria-hidden="true"></i></a>
+            </div>
+            <a href="service">
+              <h5>Запись</h5>
+            </a>
+            <a href="blog">
+              <h5>Фото</h5>
+            </a>
+            <a href="contacts">
+              <h5>Контакты</h5>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="callback callback-full"
+        data-toggle="tooltip"
+        data-placement="left"
+        title="Есть вопрос?">
+        <a class="callback_link" data-toggle="modal" data-target="#callbackModal">
+          <div class="callback_block">
+            <div class="callback_a"></div>
+            <div class="callback_b"></div>
+          </div>
+        </a>
+      </div>
+      <div class="callback callback-min">
+        <a class="callback_link" href="tel:380977133014">
+          <div class="callback_block">
+            <div class="callback_a"></div>
+            <div class="callback_b"></div>
+          </div>
+        </a>
       </div>
 
 
