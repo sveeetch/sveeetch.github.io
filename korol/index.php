@@ -14,7 +14,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.12/js/all.js" integrity="sha384-Voup2lBiiyZYkRto2XWqbzxHXwzcm4A5RfdfG6466bu5LqjwwrjXCMBQBLMWh7qR" crossorigin="anonymous"></script>
   </head>
   <body>
-    <div class="container-fluid py-3 nav-down" id="nav1">
+    <div class="container-fluid py-3" id="nav1">
       <div class="container pl-4">
         <div class="row justify-content-between align-content-center">
           <div class="col-md-6 col-lg-3 pl-0 pl-md-3 my-1"><div><img src="img/logo-main.png" width="200px"></div></div>

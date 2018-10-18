@@ -121,7 +121,7 @@ body{
         line-height: 1.75;
         font-weight: 400;
       }
-      .bg-4{
+      #callback{
         background: linear-gradient(to top, rgba(0, 135, 190, 0.7), rgba(0, 135, 190, 0.7)), url(../img/bg4.jpg) no-repeat center;
         background-size: cover;
       }
@@ -232,4 +232,19 @@ body{
       }
       .right-side li:last-child{
         border-bottom: none;
+      }
+      .bg-testimonial{
+        background-image: url(../img/bg-quote.png);
+        background-size: contain;
+        padding: 15px 30px;
+        background-repeat: no-repeat;
+      }
+      blockquote p{
+        font-size: 13px;
+      }
+      .bg-shadow-1{
+        box-shadow: 0 5px 9px 0px rgba(0, 0, 0, 0.35);
+      }
+      #testimonials .card{
+        border-top: 10px solid #43b1d2;
       }
