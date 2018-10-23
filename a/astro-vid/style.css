@@ -1,0 +1,51 @@
+.vh100{
+  height: 100vh;
+}
+.bg1{
+  background-color: rgba(255, 255, 255, 0.7);
+}
+.bg2{
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.b-10{
+  border: 10px solid rgba(0,0,0, 0.6);
+}
+.btn-custom-1{
+  background-color: #ffffff ;
+  border-radius: 1px !important;
+  border:3px solid #343A40 !important;
+  color: #343A40;
+}
+
+.is_overlay{ display: block; width: 100%; height: 100%; }
+#trailer {
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  overflow: hidden;
+  z-index: -100;
+
+}
+
+#trailer > video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%; 
+min-height: 100%;
+width: auto; height: auto; 
+z-index: -100;
+}
+ @media (min-aspect-ratio: 16/9) {
+     #trailer > video { height: 300%; top: -100%; }
+ }
+ @media (max-aspect-ratio: 16/9) {
+     #trailer > video { width: 300%; left: -100%; }
+ }
+ /* Если есть поддержка object-fit (Chrome/Chrome для Android, Safari в iOS 8 и Opera), используем его: */
+ @supports (object-fit: cover) {
+     #trailer > video {
+         top: 0; left: 0;
+         width: 100%; height: 100%;
+         object-fit: cover;
+     }
+ }

@@ -1,0 +1,11 @@
+body{
+  font-family: 'Blogger' !important;
+    font-style: normal;
+}
+.bg1{
+	height: 100vh;
+	background: linear-gradient(to top, rgba(255, 255, 255, 0.63), rgba(255, 255, 255, 0.67)), url(../img/bg1.jpg) no-repeat fixed;
+	background-position: center;
+	background-size: cover;
+	background-color: #343A40;
+}
