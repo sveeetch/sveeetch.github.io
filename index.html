@@ -18,7 +18,7 @@
   <link href="assets/css/own.css" rel="stylesheet" />
 </head>
 
-<body class="profile-page sidebar-collapse">
+<body class="profile-page sidebar-collapse" id="up">
   <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
     <div class="container">
       <div class="navbar-translate">
@@ -51,23 +51,28 @@
             </a>
           </li> -->
           <li class="nav-item">
-            <a class="nav-link" target="_blank" rel="tooltip" title="" data-placement="bottom" href="https://linkedin.com/in/sveeetch" target="_blank" data-original-title="Go to connect with me on LinkedIn">
-              <i class="fa fa-linkedin"></i>
+            <a class="nav-link" href="javascript:void(0)" onclick="scrollToUp()">
+            	<i class="material-icons">arrow_upward</i>up
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" target="_blank" rel="tooltip" title="" data-placement="bottom" href="http://www.be.net/sveeetch" target="_blank" data-original-title="Show my works on Behance">
-              <i class="fa fa-behance"></i>
+            <a class="nav-link" href="javascript:void(0)" onclick="scrollToSummary()" >
+              Summary
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" target="_blank" rel="tooltip" title="" data-placement="bottom" href="http://www.instagram.com/sveetch" target="_blank" data-original-title="Look at me on Instagram">
-              <i class="fa fa-instagram"></i>
+            <a class="nav-link" href="javascript:void(0)" onclick="scrollToSkills()">
+              Skills
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" target="_blank" rel="tooltip" title="" data-placement="bottom" href="http://www.t.me/sveeetch" target="_blank" data-original-title="Go to message with me in Telegram">
-              <i class="fa fa-telegram"></i>
+            <a class="nav-link" href="javascript:void(0)" onclick="scrollToXP()">
+              Expirince
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" onclick="scrollToPortfolio()">
+              Portfolio
             </a>
           </li>
           <li class="nav-item">
@@ -77,7 +82,7 @@
       </div>
     </div>
   </nav>
-  <div class="page-header" data-parallax="true">
+  <div class="page-header" data-parallax="true" >
     <div class="container">
       <div class="row">
         <div class="col-md-6">
@@ -110,22 +115,49 @@
           </div>
         </div>
         </div>
-        <hr class="my-5">
-        <div class="container-fluid">
+        <div class="container-fluid position-relative mt-5">
+        	<div id="summary" class="position-absolute" style="top: -100px;"></div>
         	<div class="container">
         		<div class="row justify-content-center align-items-center">
         			<div class="col-md-7 text-center">
-        				<h2 class="mb-2 h3">Summary</h2>
+					      <div class="card">
+					          <div class="card-header card-header-text card-header-info">
+					            <div class="card-text">
+					              <h4 class="card-title m-0">Summary</h4>
+					            </div>
+					          </div>
+					          <div class="card-body">
+								<p class="p-2">
+									I am a passionate Web Designer, who loves to be at the forefront of creative ways, follow design trends and generate new ideas. I would like to join a strong team to work together to build high-quality products that make people's life simpler and better. I am not afraid of any difficulties because I clearly understand that the more complex problem will be solved, the more experience I will get. My ultimate goal is to become a full-stack designer and I am ready to work hard towards that goal.
+								</p>
+					          </div>
+					      </div>
+					</div>
+        				<!-- <h2 class="mb-2 h3">Summary</h2>
 				          <p class="p-2">
 				            I am a passionate Web Designer, who loves to be at the forefront of creative ways, follow design trends and generate new ideas. I would like to join a strong team to work together to build high-quality products that make people's life simpler and better. I am not afraid of any difficulties because I clearly understand that the more complex problem will be solved, the more experience I will get. My ultimate goal is to become a full-stack designer and I am ready to work hard towards that goal.
-				          </p>
+				          </p> -->
         			</div>
         		</div>
         	</div>
         </div>
-        <div class="container-fluid bg-light my-5 py-5">
-        	<h2 class="text-center h3 mb-5">My professional skills</h2>
-        	<div class="row justify-content-center align-items-center">
+        <div class="container-fluid position-relative bg-info my-5 py-5 text-white skills">
+        	<div id="skills" class="position-absolute" style="top: -100px;"></div>
+        	<h2 class="text-center h2 mb-5"><img src="assets/img/design-skills.png" width="30px"> My professional skills</h2>
+        	<div class="row justify-content-center align-items-center ">
+        		<div class="col-md-8 col-xl-6 row">
+	        		<div class="col-md-4 my-4 h4 tool align-middle"><img src="assets/img/tools/fig.png" width="23px" class="align-middle"><br><span class="align-middle"> Figma</span></div>
+	        		<div class="col-md-4 my-4 h4 tool align-middle"><img src="assets/img/tools/bs.png" width="23px" class="align-middle"><br><span class="align-middle"> HTML, CSS, Bootstrap 4</span></div>
+	        		<div class="col-md-4 my-4 h4 tool align-middle"><img src="assets/img/tools/ps.png" width="23px" class="align-middle"><br><span class="align-middle"> Photoshop</span></div>
+	        		<div class="col-md-4 my-4 h4 tool align-middle"><img src="assets/img/tools/ai.png" width="23px" class="align-middle"><br><span class="align-middle"> Illustrator</span></div>
+	        		<div class="col-md-4 my-4 h4 tool align-middle"><img src="assets/img/tools/ae.png" width="23px" class="align-middle"><br><span class="align-middle"> After Effects</span></div>
+	        		<div class="col-md-4 my-4 h4 tool align-middle"><img src="assets/img/tools/zp.png" width="23px" class="align-middle"><br><span class="align-middle"> Zeplin</span></div>
+	        		<div class="col-md-4 my-4 h4 tool align-middle"><img src="assets/img/tools/in.png" width="23px" class="align-middle"><br><span class="align-middle"> InVision</span></div>
+	        		<div class="col-md-4 my-4 h4 tool align-middle"><img src="assets/img/tools/git.png" width="23px" class="align-middle"><br><span class="align-middle"> GitHub</span></div>
+	        		<div class="col-md-4 my-4 h4 tool align-middle"><img src="assets/img/tools/xd.png" width="23px" class="align-middle"><br><span class="align-middle"> XD</span></div>
+        		</div>
+        	</div>
+        	<!-- <div class="row justify-content-center align-items-center">
 	        	<div class="col-md-7">
 					<div class="skillbar" data-percent="85%">
 		                <div class="skill-bar-percent">Figma - 95%</div>
@@ -145,8 +177,6 @@
 		                	<div class="skillbar-bar" style="width: 75%;"></div>
 		                </div>
 		            </div>
-		        <!-- </div>
-		        <div class="col-md-5"> -->
 		            <div class="skillbar" data-percent="85%">
 		                <div class="skill-bar-percent">Photoshop - 85%</div>
 		                <div class="skillwrap">
@@ -166,9 +196,10 @@
 		                </div>
 		            </div>
 	            </div>
-            </div>
+            </div> -->
         </div>
-        <div class="container-fluid">
+        <div class="container-fluid position-relative">
+        	<div id="XP" class="position-absolute" style="top: -100px;"></div>
         	<div class="container">
         		<div class="row justify-content-center align-items-center">
 	        		<h2 class="text-center h3 mb-5 w-100">My job experience</h2>
@@ -185,71 +216,39 @@
         				<p class="experience-responsibilities font-secondary"><span class="experience-title">Responsibilities:</span>Design; Build, Maintain and Promotion company website; SMM; Google AdWords. Also create different marketing materials: posters, banners, leaflets and cards. Mastered the concepts of UX design and usability</p>
         				<p class="experience-duration"><span class="experience-title">Duration:</span>March 2016 - Present ​<span class="add">(remote, part time)</span></p>
         			</div>
+        			<div class="w-100"></div>
+        			<div class="mt-3 text-center">
+        				<a href="https://linkedin.com/in/sveeetch"><small class="text-muted">Full expirience you can see on my LinkedIn profile <i class="material-icons">arrow_right_alt</i></small></a>
+        			</div>
         		</div>
         	</div>
         </div>
-        <div class="row">
-          <div class="col-md-6 ml-auto mr-auto">
-            <div class="profile-tabs">
-              <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
-                <li class="nav-item">
-                  <a class="nav-link active" href="#studio" role="tab" data-toggle="tab">
-                    <i class="material-icons">camera</i> Studio
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#works" role="tab" data-toggle="tab">
-                    <i class="material-icons">palette</i> Work
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#favorite" role="tab" data-toggle="tab">
-                    <i class="material-icons">favorite</i> Favorite
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
+        <hr class="mt-5 mb-0">
+        <div class="container-fluid px-0 py-4 position-relative text-center">
+        	<div id="portfolio" class="position-absolute" style="top: -100px;"></div>
+        	<div class="bg-portfolio-4 px-0 py-3 mb-5">
+        		<h2 class="h2 text-info text-uppercase font-weight-bold py-3 m-0 bg-white">Portfolio</h2>
+        	</div>
+        	<div class="row px-4 justify-content-center align-items-center">
+        		<div class="col-md-6">
+					<div class="photobox photobox_type15">
+						<div class="photobox__previewbox">
+							<a target="_blank" href="assets/img/portfolio/elfic.jpg"><img src="assets/img/portfolio/preview/elfic.jpg" class="photobox__preview" alt="Preview"></a>
+							<a target="_blank" href="assets/img/portfolio/elfic.jpg"><span class="photobox__label">Elfic - private kindergarten</span></a>
+						</div>
+					</div>
+	        	</div>
+	        	<div class="col-md-6">
+					<div class="photobox photobox_type15">
+						<div class="photobox__previewbox">
+							<a target="_blank" href="assets/img/portfolio/elfic.jpg"><img src="assets/img/portfolio/preview/elfic.jpg" class="photobox__preview" alt="Preview"></a>
+							<a target="_blank" href="assets/img/portfolio/elfic.jpg"><span class="photobox__label">Elfic - private kindergarten</span></a>
+						</div>
+					</div>
+	        	</div>
+        	</div>
         </div>
-        <div class="tab-content tab-space">
-        	<div class="tab-pane text-center gallery" id="favorite">
-            <div class="row">
-              <div class="col-md-3 ml-auto">
-                <img src="../assets/img/examples/mariya-georgieva.jpg" class="rounded">
-                <img src="../assets/img/examples/studio-3.jpg" class="rounded">
-              </div>
-              <div class="col-md-3 mr-auto">
-                <img src="../assets/img/examples/clem-onojeghuo.jpg" class="rounded">
-                <img src="../assets/img/examples/olu-eletu.jpg" class="rounded">
-                <img src="../assets/img/examples/studio-1.jpg" class="rounded">
-              </div>
-            </div>
-          </div>
-          <div class="tab-pane active text-center gallery" id="studio">
-            <div class="row">
-              <div class="col-md-3 ml-auto">
-                <img src="../assets/img/examples/studio-1.jpg" class="rounded">
-                <img src="../assets/img/examples/studio-2.jpg" class="rounded">
-              </div>
-              <div class="col-md-3 mr-auto">
-                <img src="../assets/img/examples/studio-5.jpg" class="rounded">
-                <img src="../assets/img/examples/studio-4.jpg" class="rounded">
-              </div>
-            </div>
-          </div>
-          <div class="tab-pane text-center gallery" id="works">
-            <div class="row">
-              <div class="col-md-3 ml-auto">
-                <img src="../assets/img/examples/olu-eletu.jpg" class="rounded">
-                <img src="../assets/img/examples/clem-onojeghuo.jpg" class="rounded">
-                <img src="../assets/img/examples/cynthia-del-rio.jpg" class="rounded">
-              </div>
-              <div class="col-md-3 mr-auto">
-                <img src="../assets/img/examples/mariya-georgieva.jpg" class="rounded">
-                <img src="../assets/img/examples/clem-onojegaw.jpg" class="rounded">
-              </div>
-            </div>
-          </div>
+       
           
         </div>
       </div>
@@ -272,6 +271,64 @@
   <script src="assets/js/plugins/jquery.sharrre.js" type="text/javascript"></script>
   <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
   <script src="assets/js/material-kit.js?v=2.0.4" type="text/javascript"></script>
+
+  <script type="text/javascript">
+  	$(document).ready(function() {
+      //init DateTimePickers
+      materialKit.initFormExtendedDatetimepickers();
+
+      // Sliders Init
+      materialKit.initSliders();
+    });
+
+
+    function scrollToSummary() {
+      if ($('#summary').length != 0) {
+        $("html, body").animate({
+          scrollTop: $('#summary').offset().top
+        }, 1000);
+      }
+    }
+    function scrollToSkills() {
+      if ($('#skills').length != 0) {
+        $("html, body").animate({
+          scrollTop: $('#skills').offset().top
+        }, 1000);
+      }
+    }
+    function scrollToXP() {
+      if ($('#XP').length != 0) {
+        $("html, body").animate({
+          scrollTop: $('#XP').offset().top
+        }, 1000);
+      }
+    }
+    function scrollToPortfolio() {
+      if ($('#portfolio').length != 0) {
+        $("html, body").animate({
+          scrollTop: $('#portfolio').offset().top
+        }, 1000);
+      }
+    }
+    function scrollToUp() {
+      if ($('#up').length != 0) {
+        $("html, body").animate({
+          scrollTop: $('#up').offset().top
+        }, 1000);
+      }
+    }
+    
+  </script>
+  <script type="text/javascript">
+  	function on() {
+	    document.getElementById("overlay").style.display = "block";
+	}
+
+	function off() {
+	    document.getElementById("overlay").style.display = "none";
+	}
+  </script>
+
 </body>
 
 </html>
