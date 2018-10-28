@@ -127,6 +127,10 @@ h6,
 .skills{
   background: linear-gradient(60deg, #26c6da, #0097a7);
 }
+.skills span{
+  font-size: 18pt;
+}
+
 .tool{
   font-family: "Poppins", sans-serif !important;
 }
@@ -152,9 +156,9 @@ h6,
   background-position: center;
 }*/
 
-.tool:nth-child(5), .tool:nth-child(7), .tool:nth-child(8), .tool:nth-child(9){
+/*.tool:nth-child(5), .tool:nth-child(7), .tool:nth-child(8), .tool:nth-child(9){
   opacity: 0.8;
-}
+}*/
 
 
 .bg-portfolio{
@@ -302,7 +306,7 @@ h6,
   text-align: center;
   font-family: 'Poppins', sans-serif;
   font-size: 18pt;
-  font-weight: 600;
+  font-weight: 500;
   color: #ffffff;
 
   opacity: 0;
