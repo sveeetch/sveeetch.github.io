@@ -18,9 +18,510 @@
   <link href="assets/css/own.css" rel="stylesheet" />
 </head>
 
-<body >
- <h1>Hello, world</h1>
-  
+<body class="profile-page sidebar-collapse" id="up">
+  <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
+    <div class="container">
+      <div class="navbar-translate">
+        <a class="navbar-brand" data-toggle="tooltip" data-placement="bottom" title="" data-container="body" data-original-title="My nickname (everywhere)" href="#">sveeetch</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <!-- <li class="dropdown nav-item">
+            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" >
+              <i class="material-icons">apps</i> Components
+            </a>
+            <div class="dropdown-menu dropdown-with-icons">
+              <a href="" class="dropdown-item">
+                <i class="material-icons">layers</i> All Components
+              </a>
+              <a href="" class="dropdown-item">
+                <i class="material-icons">content_paste</i> Documentation
+              </a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" onclick="scrollToDownload()">
+              <i class="material-icons">cloud_download</i> Download
+            </a>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" onclick="scrollToUp()">
+            	<i class="material-icons">arrow_upward</i>up
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" onclick="scrollToSummary()" >
+              Summary
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" onclick="scrollToSkills()">
+              Skills
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" onclick="scrollToXP()">
+              Expirince
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" onclick="scrollToPortfolio()">
+              Portfolio
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" onclick="scrollToFooter()">
+              <small>Footer</small>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" target="_blank" rel="tooltip" title="" data-placement="bottom" href="https://goo.gl/6E9hRG" target="_blank" data-original-title="Print version of my CV"><h3 class="m-0 h3">CV</h3></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="page-header" data-parallax="true" >
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h2 class="my-3">Hello! My name is</h2>
+          <h1 class="my-3">Svitlichniy Dmytro</h1>
+          <h5 class="my-3">Here is my CV, which include summary and portfolio. Also information about skills, work experience, and education</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main main-raised">
+    <div class="profile-content">
+      <div class="container-fluid p-0">
+      	<div class="container">
+        <div class="row">
+          <div class="col-md-6 ml-auto mr-auto">
+            <div class="profile">
+              <div class="avatar">
+                <img src="assets/img/ava.png" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+              </div>
+              <div class="name">
+                <h3 class="title font-weight-light mb-0">Svitlichniy Dmytro</h3>
+                <h6>Web Designer</h6>
+                <a href="http://www.be.net/sveeetch" class="btn btn-just-icon btn-link"><i class="fa fa-behance" aria-hidden="true"></i></a>
+                <a href="http://www.t.me/sveeetch" class="btn btn-just-icon btn-link"><i class="fa fa-telegram" aria-hidden="true"></i></a>
+                <a href="https://linkedin.com/in/sveeetch" class="btn btn-just-icon btn-link"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                <a href="http://www.instagram.com/sveetch" class="btn btn-just-icon btn-link"><i class="fa fa-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="container-fluid position-relative mt-5">
+        	<div id="summary" class="position-absolute" style="top: -100px;"></div>
+        	<div class="container">
+        		<div class="row justify-content-center align-items-center">
+        			<div class="col-md-7 text-center">
+					      <div class="card">
+					          <div class="card-header card-header-text card-header-info">
+					            <div class="card-text">
+					              <h2 class="h3 m-0">Summary</h2>
+					            </div>
+					          </div>
+					          <div class="card-body">
+								<p class="p-2">
+									I am a passionate Web Designer, who loves to be at the forefront of creative ways, follow design trends and generate new ideas. I would like to join a strong team to work together to build high-quality products that make people's life simpler and better. I am not afraid of any difficulties because I clearly understand that the more complex problem will be solved, the more experience I will get. My ultimate goal is to become a full-stack designer and I am ready to work hard towards that goal.
+								</p>
+					          </div>
+					      </div>
+					</div>
+        				<!-- <h2 class="mb-2 h3">Summary</h2>
+				          <p class="p-2">
+				            I am a passionate Web Designer, who loves to be at the forefront of creative ways, follow design trends and generate new ideas. I would like to join a strong team to work together to build high-quality products that make people's life simpler and better. I am not afraid of any difficulties because I clearly understand that the more complex problem will be solved, the more experience I will get. My ultimate goal is to become a full-stack designer and I am ready to work hard towards that goal.
+				          </p> -->
+        			</div>
+        		</div>
+        	</div>
+        </div>
+        <div class="container-fluid position-relative bg-info my-5 py-5 text-white skills">
+        	<div id="skills" class="position-absolute" style="top: -100px;"></div>
+        	<h2 class="text-center h2 mb-5"><img src="assets/img/design-skills.png" width="30px"> My professional skills</h2>
+        	<div class="row justify-content-center align-items-center ">
+            <div class="col-md-10 col-xl-8 row text-center сard">
+              <div class=" col-sm-6 col-md-4 my-1 my-md-4">
+                <div class="card p-4 h4 tool my-1">
+                  <div class=" сard-body"><img src="assets/img/tools/fig.png" width="23px" class="align-middle"><br><span class="align-middle"> Figma</span></div>
+                </div>
+              </div>
+              <div class=" col-sm-6 col-md-4 my-1 my-md-4">
+                <div class="card p-4 h4 tool my-1">
+                  <div class=" сard-body"><img src="assets/img/tools/bs.png" width="23px" class="align-middle"><br><span class="align-middle"> Bootstrap 4</span></div>
+                </div>
+              </div>
+              <div class=" col-sm-6 col-md-4 my-1 my-md-4">
+                <div class="card p-4 h4 tool my-1">
+                  <div class=" сard-body"><img src="assets/img/tools/ps.png" width="23px" class="align-middle"><br><span class="align-middle"> Photoshop</span></div>
+                </div>
+              </div>
+              <div class=" col-sm-6 col-md-4 my-1 my-md-4">
+                <div class="card p-4 h4 tool my-1">
+                  <div class=" сard-body"><img src="assets/img/tools/ai.png" width="23px" class="align-middle"><br><span class="align-middle"> Illustrator</span></div>
+                </div>
+              </div>
+              <div class=" col-sm-6 col-md-4 my-1 my-md-4">
+                <div class="card p-4 h4 tool my-1">
+                  <div class=" сard-body"><img src="assets/img/tools/ae.png" width="23px" class="align-middle"><br><span class="align-middle"> After Effects</span></div>
+                </div>
+              </div>
+              <div class=" col-sm-6 col-md-4 my-1 my-md-4">
+                <div class="card p-4 h4 tool my-1">
+                  <div class=" сard-body"><img src="assets/img/tools/xd.png" width="23px" class="align-middle"><br><span class="align-middle"> XD</span></div>
+                </div>
+              </div>
+              <div class=" col-sm-6 col-md-4 my-1 my-md-4">
+                <div class="card p-4 h4 tool my-1">
+                  <div class=" сard-body"><img src="assets/img/tools/in.png" width="23px" class="align-middle"><br><span class="align-middle"> InVision</span></div>
+                </div>
+              </div>
+              <div class=" col-sm-6 col-md-4 my-1 my-md-4">
+                <div class="card p-4 h4 tool my-1">
+                  <div class=" сard-body"><img src="assets/img/tools/git.png" width="23px" class="align-middle"><br><span class="align-middle"> GitHub</span></div>
+                </div>
+              </div>
+              <div class=" col-sm-6 col-md-4 my-1 my-md-4">
+                <div class="card p-4 h4 tool my-1">
+                  <div class=" сard-body"><img src="assets/img/tools/zp.png" width="23px" class="align-middle"><br><span class="align-middle"> Zeplin</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        	<!-- <div class="row justify-content-center align-items-center">
+	        	<div class="col-md-7">
+					<div class="skillbar" data-percent="85%">
+		                <div class="skill-bar-percent">Figma - 95%</div>
+		                <div class="skillwrap">
+		                	<div class="skillbar-bar" style="width: 95%;"></div>
+		                </div>
+		            </div>
+		            <div class="skillbar" data-percent="85%">
+		                <div class="skill-bar-percent">HTML, CSS, Bootstrap 4 - 75%</div>
+		                <div class="skillwrap">
+		                	<div class="skillbar-bar" style="width: 75%;"></div>
+		                </div>
+		            </div>
+		            <div class="skillbar" data-percent="85%">
+		                <div class="skill-bar-percent">InVision - 75%</div>
+		                <div class="skillwrap">
+		                	<div class="skillbar-bar" style="width: 75%;"></div>
+		                </div>
+		            </div>
+		            <div class="skillbar" data-percent="85%">
+		                <div class="skill-bar-percent">Photoshop - 85%</div>
+		                <div class="skillwrap">
+		                	<div class="skillbar-bar" style="width: 85%;"></div>
+		                </div>
+		            </div>
+		            <div class="skillbar" data-percent="85%">
+		                <div class="skill-bar-percent">Illustrator - 85%</div>
+		                <div class="skillwrap">
+		                	<div class="skillbar-bar" style="width: 85%;"></div>
+		                </div>
+		            </div>
+		            <div class="skillbar" data-percent="85%">
+		                <div class="skill-bar-percent">After Effects - 55%</div>
+		                <div class="skillwrap">
+		                	<div class="skillbar-bar" style="width: 55%;"></div>
+		                </div>
+		            </div>
+	            </div>
+            </div> -->
+        </div>
+        <div class="container-fluid position-relative">
+        	<div id="XP" class="position-absolute" style="top: -100px;"></div>
+        	<div class="container">
+        		<div class="row justify-content-center align-items-center">
+	        		<h2 class="text-center h3 mb-5 w-100">My job experience</h2>
+        			<div class="col-md-6">
+        				<p class="experience-company font-primary"><span class="experience-title">Company:</span>Remote employee</p>
+        				<p class="experience-position"><span class="experience-title">Position:</span>Web Designer + template designer (html)</p>
+        				<p class="experience-responsibilities font-secondary"><span class="experience-title">Responsibilities:</span>Create design of web pages, logos, SMM etc. Also coding html, css. Mastered the concepts of UX design and usability.</p>
+        				<p class="experience-duration"><span class="experience-title">Duration:</span>December 2017 - July 2018</p>
+        			</div>
+        			<div class="w-100 my-4 text-center"><hr class="w-25"></div>
+        			<div class="col-md-6">
+        				<a href="http://elfic.dp.ua"><p class="experience-company font-primary"><span class="experience-title">Company:</span><span class="btn-link text-rose">Эльфик - частный детский сад</span></p></a>
+        				<p class="experience-position"><span class="experience-title">Position:</span>Designer, Marketing Manager</p>
+        				<p class="experience-responsibilities font-secondary"><span class="experience-title">Responsibilities:</span>Design; Build, Maintain and Promotion company website; SMM; Google AdWords. Also create different marketing materials: posters, banners, leaflets and cards. Mastered the concepts of UX design and usability</p>
+        				<p class="experience-duration"><span class="experience-title">Duration:</span>March 2016 - Present ​<span class="add">(remote, part time)</span></p>
+        			</div>
+        			<div class="w-100"></div>
+        			<div class="mt-3 text-center">
+        				<a href="https://linkedin.com/in/sveeetch"><small class="text-muted">Full expirience you can see on my LinkedIn profile <i class="material-icons">arrow_right_alt</i></small></a>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+        <hr class="mt-5 mb-0">
+        <div class="container-fluid px-0 pb-4 position-relative text-center">
+          <div id="portfolio" class="position-absolute" style="top: -100px;"></div>
+          <div class="bg-portfolio-4 px-0 py-3">
+              <h2 class="h2 text-info text-uppercase font-weight-bold py-3 m-0 bg-white"><i class="fa fa-arrow-down"></i>&nbsp;&nbsp;&nbsp;Portfolio&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-down"></i></h2>
+          </div>
+          <div class="row px-4 justify-content-center align-items-start">
+              <div class="col-md-6 my-5">
+                  <div class="photobox photobox_type15">
+                      <div class="photobox__previewbox">
+                          <a target="_blank" href="assets/img/portfolio/transalliance.jpg"><img src="assets/img/portfolio/preview/transalliance.jpg" class="photobox__preview" alt="Preview"></a>
+                          <a target="_blank" href="assets/img/portfolio/transalliance.jpg"><span class="photobox__label">Transalliance - invest fund</span></a>
+                      </div>
+                      <code class="text-muted">design</code>
+                  </div>
+                  <br>
+                  <a class="btn-link text-rose" target="_blank" href="https://www.figma.com/proto/N0ywmxSRggSwYeQys3Z59hRD/transalliance?node-id=25%3A0&viewport=990%2C360%2C0.273022&scaling=min-zoom">Look full prototype in Figma presentation <small>(12&nbsp;screens)</small><i class="material-icons">arrow_right_alt</i></a>
+              </div>
+              <div class="col-md-6 my-5">
+                  <div class="photobox photobox_type15">
+                      <div class="photobox__previewbox">
+                          <a target="_blank" href="assets/img/portfolio/elfic.jpg"><img src="assets/img/portfolio/preview/elfic.jpg" class="photobox__preview" alt="Preview"></a>
+                          <a target="_blank" href="assets/img/portfolio/elfic.jpg"><span class="photobox__label">Elfic - private kindergarten</span></a>
+                      </div>
+                      <code class="text-muted">design | coding | marketing</code>
+                  </div>
+                  <br>
+                  <a class="btn-link text-rose" target="_blank" href="http://beta.elfic.dp.ua/">Look this project online <i class="material-icons">arrow_right_alt</i></a>
+              </div>
+              <div class="col-md-6 my-5">
+                  <div class="photobox photobox_type15">
+                      <div class="photobox__previewbox">
+                          <a target="_blank" href="assets/img/portfolio/BF.jpg"><img src="assets/img/portfolio/preview/BF.jpg" class="photobox__preview" alt="Preview"></a>
+                          <a target="_blank" href="assets/img/portfolio/BF.jpg"><span class="photobox__label">Briliant France - diamond exchange</span></a>
+                      </div>
+                      <code class="text-muted">design </code>
+                  </div>
+                  <br>
+                  <a class="btn-link text-rose" target="_blank" href="https://www.figma.com/proto/ITzNkcR7AmXifsROLeHwOnX9/Briliant-France?node-id=11%3A467&viewport=-1983%2C-671%2C0.594921&scaling=min-zoom">Look full prototype in Figma presentation <small>(4&nbsp;screens)</small><i class="material-icons">arrow_right_alt</i></a>
+              </div>
+              <div class="col-md-6 my-5">
+                  <div class="photobox photobox_type15">
+                      <div class="photobox__previewbox">
+                          <a target="_blank" href="https://goo.gl/tb3aNW"><img src="assets/img/portfolio/preview/trial-ux.jpg" class="photobox__preview" alt="Preview"></a>
+                          <a target="_blank" href="https://goo.gl/tb3aNW"><span class="photobox__label">Web application - UX trial task</span></a>
+                      </div>
+                      <code class="text-muted">design <small>(interactive)</small> | prototype</code>
+                  </div>
+                  <br>
+                  <a class="btn-link text-rose" target="_blank" href="https://goo.gl/tb3aNW">Look full prototype in Figma (interactive) <small>(16&nbsp;screens)</small> <i class="material-icons">arrow_right_alt</i></a>
+              </div>
+              <div class="col-md-6 my-5">
+                  <div class="photobox photobox_type15">
+                      <div class="photobox__previewbox">
+                          <a target="_blank" href="http://www.endorphin-tour.com.ua/"><img src="assets/img/portfolio/preview/endorphin.jpg" class="photobox__preview" alt="Preview"></a>
+                          <a target="_blank" href="http://www.endorphin-tour.com.ua/"><span class="photobox__label">Endorphin - fitness tour</span></a>
+                      </div>
+                      <code class="text-muted">design | coding</code>
+                  </div>
+              </div>
+              <div class="col-md-6 my-5">
+                  <div class="photobox photobox_type15">
+                      <div class="photobox__previewbox">
+                          <a target="_blank" href="assets/img/portfolio/f-invest.jpg"><img src="assets/img/portfolio/preview/f-invest.jpg" class="photobox__preview" alt="Preview"></a>
+                          <a target="_blank" href="assets/img/portfolio/f-invest.jpg"><span class="photobox__label">Fast-invest - finance exchange</span></a>
+                      </div>
+                      <code class="text-muted">design</code>
+                  </div>
+                  <br>
+                  <a class="btn-link text-rose" target="_blank" href="https://www.figma.com/proto/aUB6JWP94WF91qiSnzpCeNt2/F-invest?node-id=1%3A2&viewport=687%2C443%2C0.27695&scaling=min-zoom">Look full prototype in Figma presentation <small>(4&nbsp;screens)</small><i class="material-icons">arrow_right_alt</i></a>
+              </div>
+              <div class="col-md-6 my-5">
+                  <div class="photobox photobox_type15">
+                      <div class="photobox__previewbox">
+                          <a target="_blank" href="assets/img/portfolio/rozoom.jpg"><img src="assets/img/portfolio/preview/rozoom.jpg" class="photobox__preview" alt="Preview"></a>
+                          <a target="_blank" href="assets/img/portfolio/rozoom.jpg"><span class="photobox__label">RoZoom - e-learning</span></a>
+                      </div>
+                      <code class="text-muted">design</code>
+                  </div>
+                  <br>
+                  <a class="btn-link text-rose" target="_blank" href="https://www.figma.com/proto/eqKbsoQyTAsMFFU0pkY0wRI2/RoZoom?node-id=58%3A741&viewport=501%2C409%2C0.145711&scaling=min-zoom">Look full prototype in Figma presentation <small>(36&nbsp;screens)</small> <i class="material-icons">arrow_right_alt</i></a>
+              </div>
+              <div class="col-md-6 my-5">
+                  <div class="photobox photobox_type15">
+                      <div class="photobox__previewbox">
+                          <a target="_blank" href="assets/img/portfolio/global.jpg"><img src="assets/img/portfolio/preview/global.jpg" class="photobox__preview" alt="Preview"></a>
+                          <a target="_blank" href="assets/img/portfolio/global.jpg"><span class="photobox__label">Global Invest Company - finance exchange</span></a>
+                      </div>
+                      <code class="text-muted">design | coding</code>
+                  </div>
+                  <br>
+                  <a class="btn-link text-rose" target="_blank" href="https://www.figma.com/proto/TmXNhjtVnMFNiJqp7qOzje6r/Global?node-id=1%3A2&viewport=346%2C381%2C0.0773294&scaling=min-zoom">Look full prototype in Figma presentation <small>(11&nbsp;screens)</small> <i class="material-icons">arrow_right_alt</i></a>
+                  <br>
+                  <a class="btn-link text-rose" target="_blank" href="https://globalinvestcompany.ru/">Look this project online <i class="material-icons">arrow_right_alt</i></a>
+              </div>
+              <div class="col-md-6 my-5">
+                  <div class="photobox photobox_type15">
+                      <div class="photobox__previewbox">
+                          <a target="_blank" href="assets/img/portfolio/astro.jpg"><img src="assets/img/portfolio/preview/astro.jpg" class="photobox__preview" alt="Preview"></a>
+                          <a target="_blank" href="assets/img/portfolio/astro.jpg"><span class="photobox__label">LAL KITAB - Atsrology</span></a>
+                      </div>
+                      <code class="text-muted">design | coding</code>
+                  </div>
+                  <br>
+                  <a class="btn-link text-rose" target="_blank" href="https://www.figma.com/proto/Um61LZLVIrE4pVXBvFTHm6l9/Astro?node-id=29%3A10&viewport=101%2C1364%2C0.182766&scaling=min-zoom">Look full prototype in Figma presentation <small>(16&nbsp;screens)</small> <i class="material-icons">arrow_right_alt</i></a>
+                  <br>
+                  <a class="btn-link text-rose" target="_blank" href="http://lalkitab.pro/">Look this project online <i class="material-icons">arrow_right_alt</i></a>
+              </div>
+              <div class="col-md-6 my-5">
+                  <div class="photobox photobox_type15">
+                      <div class="photobox__previewbox">
+                          <a target="_blank" href="assets/img/portfolio/korol-medical.jpg"><img src="assets/img/portfolio/preview/korol-medical.jpg" class="photobox__preview" alt="Preview"></a>
+                          <a target="_blank" href="assets/img/portfolio/korol-medical.jpg"><span class="photobox__label">Korol medical - Medical center</span></a>
+                      </div>
+                      <code class="text-muted">design | coding</code>
+                  </div>
+                  <br>
+                  <a class="btn-link text-rose" target="_blank" href="http://korol.dp.ua/">Look this project online <i class="material-icons">arrow_right_alt</i></a>
+              </div>
+              <div class="col-md-6 my-5">
+                  <div class="photobox photobox_type15">
+                      <div class="photobox__previewbox">
+                          <a target="_blank" href="assets/img/portfolio/escrow.jpg"><img src="assets/img/portfolio/preview/escrow.jpg" class="photobox__preview" alt="Preview"></a>
+                          <a target="_blank" href="assets/img/portfolio/escrow.jpg"><span class="photobox__label">Escrow - safe online deals</span></a>
+                      </div>
+                      <code class="text-muted">design</code>
+                  </div>
+                  <br>
+                  <a class="btn-link text-rose" target="_blank" href="https://www.figma.com/proto/VsZ2f2XVHA9n6cEVgO6CMHzW/escrow?node-id=0%3A1&viewport=254%2C338%2C0.0640621&scaling=min-zoom">Look full prototype in Figma presentation <small>(14&nbsp;screens)</small> <i class="material-icons">arrow_right_alt</i></a>
+                  <br>
+              </div>
+              <div class="col-md-6 my-5">
+                  <div class="photobox photobox_type15">
+                      <div class="photobox__previewbox">
+                          <a target="_blank" href="assets/img/portfolio/rudmazh.jpg"><img src="assets/img/portfolio/preview/rudmazh.jpg" class="photobox__preview" alt="Preview"></a>
+                          <a target="_blank" href="assets/img/portfolio/rudmazh.jpg"><span class="photobox__label">Rudmazh - website</span></a>
+                      </div>
+                      <code class="text-muted">design</code>
+                  </div>
+                  <br>
+                  <a class="btn-link text-rose" target="_blank" href="https://www.figma.com/proto/OBRxETn6hoUmQd9EkoumlfDg/Rudmazh?node-id=1%3A2&viewport=347%2C190%2C0.150265&scaling=min-zoom">Look full prototype in Figma presentation <small>(7&nbsp;screens)</small> <i class="material-icons">arrow_right_alt</i></a>
+                  <br>
+              </div>
+          </div>
+          <a href="http://www.be.net/sveeetch" class="text-center text-info btn-link" target="_blank">
+            <h4 class="h5">A little more of my works you can see in Behance profile <i class="material-icons">arrow_right_alt</i> <i class="fa fa-behance" aria-hidden="true"></i></h4>
+          </a>
+      </div>
+       
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer footer-default mt-5">
+    <div id="footer" class="position-absolute" style="top: -100px;"></div>
+    <div class="container text-center">
+      <div class="row justify-content-center align-items-center">
+        <div class="col"><a class="text-muted" data-toggle="tooltip" data-placement="bottom" title="" data-container="body" data-original-title="My nickname (everywhere)" href="javascript:void(0)" onclick="scrollToUp()">sveeetch</a>
+        </div>
+      </div>
+      <div class="row justify-content-center align-items-center">
+        <div class="col">
+          <a href="http://www.be.net/sveeetch" class="btn btn-just-icon btn-link"><i class="fa fa-behance" aria-hidden="true"></i></a>
+          <a href="http://www.t.me/sveeetch" class="btn btn-just-icon btn-link"><i class="fa fa-telegram" aria-hidden="true"></i></a>
+          <a href="https://linkedin.com/in/sveeetch" class="btn btn-just-icon btn-link"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+          <a href="http://www.instagram.com/sveetch" class="btn btn-just-icon btn-link"><i class="fa fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="row justify-content-center align-items-center">
+        <div class="col">
+          &copy;
+          <script>
+            document.write(new Date().getFullYear())
+          </script>, Svitlichniy Dmytro.
+        </div>
+      </div>
+      </div>
+    </div>
+  </footer>
+  <!--   Core JS Files   -->
+  <script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
+  <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
+  <script src="assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+  <script src="assets/js/plugins/moment.min.js"></script>
+  <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+  <script src="assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
+  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+  <script src="assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+  <!--	Plugin for Sharrre btn -->
+  <script src="assets/js/plugins/jquery.sharrre.js" type="text/javascript"></script>
+  <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
+  <script src="assets/js/material-kit.js?v=2.0.4" type="text/javascript"></script>
+
+  <script type="text/javascript">
+  	$(document).ready(function() {
+      //init DateTimePickers
+      materialKit.initFormExtendedDatetimepickers();
+
+      // Sliders Init
+      materialKit.initSliders();
+    });
+
+
+    function scrollToSummary() {
+      if ($('#summary').length != 0) {
+        $("html, body").animate({
+          scrollTop: $('#summary').offset().top
+        }, 1000);
+      }
+    }
+    function scrollToSkills() {
+      if ($('#skills').length != 0) {
+        $("html, body").animate({
+          scrollTop: $('#skills').offset().top
+        }, 1000);
+      }
+    }
+    function scrollToXP() {
+      if ($('#XP').length != 0) {
+        $("html, body").animate({
+          scrollTop: $('#XP').offset().top
+        }, 1000);
+      }
+    }
+    function scrollToPortfolio() {
+      if ($('#portfolio').length != 0) {
+        $("html, body").animate({
+          scrollTop: $('#portfolio').offset().top
+        }, 1000);
+      }
+    }
+    function scrollToUp() {
+      if ($('#up').length != 0) {
+        $("html, body").animate({
+          scrollTop: $('#up').offset().top
+        }, 1000);
+      }
+    }
+    function scrollToFooter() {
+      if ($('.footer').length != 0) {
+        $("html, body").animate({
+          scrollTop: $('.footer').offset().top
+        }, 1000);
+      }
+    }
+    
+  </script>
+  <script type="text/javascript">
+  	function on() {
+	    document.getElementById("overlay").style.display = "block";
+	}
+
+	function off() {
+	    document.getElementById("overlay").style.display = "none";
+	}
+  </script>
+
 </body>
 
 </html>
