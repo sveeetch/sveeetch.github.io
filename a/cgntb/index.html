@@ -8,17 +8,32 @@
 			min-width: 650px;
 		}
 		li {
-			padding: 20px;
-			margin: 20px 0;
+			padding: 30px;
+			border-top: 1px solid #85613C;
 		}
-		li span{
+		li a{
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: justify;
+			-ms-flex-pack: justify;
+			justify-content: space-between;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			align-items: center;
+			text-align: left;
+		}
+		li:first-child{
+			border: none;
+		}
+		/*li span{
 			border-left: 1px solid #85613C;
 			padding: 5px 20px;
 		}
 		li span:last-child{
 			float: right;
 			width: 120px;
-		}
+		}*/
 	</style>
 </head>
 <body>
