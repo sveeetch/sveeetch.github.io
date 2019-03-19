@@ -283,7 +283,7 @@ h6,
   height: 0;
   padding: 25%;
   
-  background-color: var(--photoboxOverlay, rgba(0, 151, 167, .8));
+  background-color: var(--photoboxOverlay, rgba(0, 0, 0, .8));
   border-radius: 50%;
   
   position: absolute;
