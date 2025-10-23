@@ -79,9 +79,8 @@
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
                 <tr>
                   <td align="center" style="padding:0;margin:0;">
-                    {% set href_trans = module.link_img_transparent and module.link_img_transparent.url and module.link_img_transparent.url.href %}
-                    {% if href_trans %}
-                      <a href="{{ module.link_img_transparent.url.href }}" {% if module.link_img_transparent.open_in_new_tab %}target="_blank"{% endif %} style="display:inline-block;">
+                    {% if module.link_img_transparent and module.link_img_transparent.href %}
+                      <a href="{{ module.link_img_transparent.href }}" {% if module.link_img_transparent.open_in_new_tab %}target="_blank"{% endif %} style="display:inline-block;">
                         <img src="{{ module.content_img_transparent.src }}" alt="{{ module.content_img_transparent.alt|escape }}" width="540"
                              style="display:block;width:100%;max-width:540px;height:auto;border:0;outline:0;text-decoration:none;">
                       </a>
@@ -100,8 +99,15 @@
           <!-- FULL WIDTH HERO IMG -->
           <tr>
             <td align="left" style="padding:0;margin:0;background:#1a1a1a;border-radius:8px 8px 0 0;">
-              <img src="{{ module.content_img.src }}" alt="{{ module.content_img.alt|escape }}" width="600"
-                   style="display:block;width:100%;height:auto;border:0;outline:0;text-decoration:none;border-radius:8px 8px 0 0;">
+              {% if module.link_img and module.link_img.href %}
+                <a href="{{ module.link_img.href }}" {% if module.link_img.open_in_new_tab %}target="_blank"{% endif %} style="display:block;">
+                  <img src="{{ module.content_img.src }}" alt="{{ module.content_img.alt|escape }}" width="600"
+                       style="display:block;width:100%;height:auto;border:0;outline:0;text-decoration:none;border-radius:8px 8px 0 0;">
+                </a>
+              {% else %}
+                <img src="{{ module.content_img.src }}" alt="{{ module.content_img.alt|escape }}" width="600"
+                     style="display:block;width:100%;height:auto;border:0;outline:0;text-decoration:none;border-radius:8px 8px 0 0;">
+              {% endif %}
             </td>
           </tr>
           {% endif %}
@@ -197,7 +203,7 @@
               <table role="presentation" cellpadding="0" cellspacing="0">
                 <tr>
                   <td width="32">
-                    <a href="{{ module.subcontent_1_button_link.url.href if module.subcontent_1_button_link and module.subcontent_1_button_link.url.href else '#' }}"
+                    <a href="{{ module.subcontent_1_button_link.href if module.subcontent_1_button_link and module.subcontent_1_button_link.href else '#' }}"
                        {% if module.subcontent_1_button_link and module.subcontent_1_button_link.open_in_new_tab %}target="_blank"{% endif %}
                        style="display:block;">
                       <img src="https://go.3ss.tv/hubfs/arrow-right.png" width="32" height="32" alt="" style="display:block;border:0;">
@@ -205,7 +211,7 @@
                   </td>
                   <td width="12"></td>
                   <td>
-                    <a href="{{ module.subcontent_1_button_link.url.href if module.subcontent_1_button_link and module.subcontent_1_button_link.url.href else '#' }}"
+                    <a href="{{ module.subcontent_1_button_link.href if module.subcontent_1_button_link and module.subcontent_1_button_link.href else '#' }}"
                        {% if module.subcontent_1_button_link and module.subcontent_1_button_link.open_in_new_tab %}target="_blank"{% endif %}
                        style="font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:24px;color:#FFFFFF;text-decoration:none;font-weight:700;">
                       {{ module.subcontent_1_button_text }}
@@ -246,7 +252,7 @@
               <table role="presentation" cellpadding="0" cellspacing="0">
                 <tr>
                   <td width="32">
-                    <a href="{{ module.subcontent_2_button_link.url.href if module.subcontent_2_button_link and module.subcontent_2_button_link.url.href else '#' }}"
+                    <a href="{{ module.subcontent_2_button_link.href if module.subcontent_2_button_link and module.subcontent_2_button_link.href else '#' }}"
                        {% if module.subcontent_2_button_link and module.subcontent_2_button_link.open_in_new_tab %}target="_blank"{% endif %}
                        style="display:block;">
                       <img src="https://go.3ss.tv/hubfs/arrow-right.png" width="32" height="32" alt="" style="display:block;border:0;">
@@ -254,7 +260,7 @@
                   </td>
                   <td width="12"></td>
                   <td>
-                    <a href="{{ module.subcontent_2_button_link.url.href if module.subcontent_2_button_link and module.subcontent_2_button_link.url.href else '#' }}"
+                    <a href="{{ module.subcontent_2_button_link.href if module.subcontent_2_button_link and module.subcontent_2_button_link.href else '#' }}"
                        {% if module.subcontent_2_button_link and module.subcontent_2_button_link.open_in_new_tab %}target="_blank"{% endif %}
                        style="font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:24px;color:#FFFFFF;text-decoration:none;font-weight:700;">
                       {{ module.subcontent_2_button_text }}
@@ -271,7 +277,7 @@
           <tr>
             <td data-px align="left" style="background:#1a1a1a;padding:16px 32px 0 32px;">
               <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:24px;color:#D1D1D1;">
-                <a href="{{ module.link_link.url.href if module.link_link and module.link_link.url.href else '#' }}"
+                <a href="{{ module.link_link.href if module.link_link and module.link_link.href else '#' }}"
                    {% if module.link_link and module.link_link.open_in_new_tab %}target="_blank"{% endif %}
                    style="color:#F20D1E;text-decoration:none;font-weight:700;">
                   {{ module.link_text or 'Download' }}
