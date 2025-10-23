@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Email</title>
+  <style>
+    /* Лише мобільний твік ширини */
+    @media only screen and (max-width:600px){
+      table[role="presentation"][data-w="600"]{width:100%!important}
+      td[data-px]{padding-left:16px!important;padding-right:16px!important}
+    }
+  </style>
+  <style> a { text-decoration:none; color: #ffffff !important; font-weight: 700 !important;}</style>
+  <style type="text/css">
+    /* Style Guard — не даємо злетіти в serif/чорний */
+    body, table, td, p, a, h1, h2, h3, h4, h5, h6 {
+      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif !important;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+    p { margin: 0 !important; } /* прибираємо випадкові вертикальні марджини */
+
+    /* Reset */
+    body { margin: 0; padding: 0; background:#000; }
+    table { border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; }
+    img { border:0; outline:0; text-decoration:none; -ms-interpolation-mode:bicubic; display:block; }
+    a { text-decoration:none; color: #ffffff !important; font-weight: 700 !important;}
+
+    /* Helpers */
+    .adapt-img{ width:100% !important; height:auto !important; max-width:100% !important; }
+    .rounded-top{ border-radius:8px 8px 0 0; }
+    .rounded-bottom{ border-radius:0 0 8px 8px; }
+    .px-32{ padding-left:32px; padding-right:32px; }
+    .pt-32{ padding-top:32px; }
+    .pt-16{ padding-top:16px; }
+    .pb-32{ padding-bottom:32px; }
+
+    /* Текстові кольори (щоб не «чорніли») */
+    .c-white{ color:#fefdfd !important; }
+    .c-offwhite{ color:#fafafa !important; }
+    .c-gray{ color:#d1d1d1 !important; }
+    .c-red{ color:#f20d1e !important; }
+
+    /* Mobile */
+    @media only screen and (max-width:600px){
+      .es-content-body{ width:100% !important; max-width:100% !important; }
+      .px-32{ padding-left:16px !important; padding-right:16px !important; }
+      .es-left, .es-right{ width:100% !important; display:block !important; float:none !important; }
+      .es-m-w0{ width:0 !important; }
+      .es-m-p8r{ padding-right:8px !important; }
+      .es-m-p20b{ padding-bottom:20px !important; }
+      .es-text-mobile-size-24{ font-size:24px !important; line-height:28.8px !important; }
+      .es-text-mobile-size-16{ font-size:16px !important; line-height:22.4px !important; }
+      .h-auto{ height:auto !important; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background:#000;">
+{% if module.show_module %}
+  <!-- OUTER -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:0;padding:0;background:#000;">
+    <tr>
+      <td align="center" style="margin:0;padding:0;background:#000;">
+        <!-- FIXED 600 WRAPPER -->
+        <!--[if mso]><table role="presentation" width="600" cellpadding="0" cellspacing="0"><tr><td><![endif]-->
+        <table role="presentation" data-w="600" width="600" cellpadding="0" cellspacing="0" style="width:600px;max-width:600px;background:#000;">
+
+          <!-- top spacer -->
+          <tr><td style="height:16px;line-height:16px;font-size:0;background:#000;">&nbsp;</td></tr>
+
+          {% if module.content_img_transparent and module.content_img_transparent.src %}
+          <!-- BLOCK WITH LEFT DECOR BG -->
+          <tr>
+            <td data-px align="left"
+                style="background:#1a1a1a;border-radius:8px 8px 0 0;padding:32px 32px 0 32px;
+                       background-image:url(https://go.3ss.tv/hubfs/bg_left.png);
+                       background-repeat:no-repeat;background-position:left bottom;background-size:auto 100%;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+                <tr>
+                  <td align="center" style="padding:0;margin:0;">
+                    {% set href_trans = module.link_img_transparent and module.link_img_transparent.url and module.link_img_transparent.url.href %}
+                    {% if href_trans %}
+                      <a href="{{ module.link_img_transparent.url.href }}" {% if module.link_img_transparent.open_in_new_tab %}target="_blank"{% endif %} style="display:inline-block;">
+                        <img src="{{ module.content_img_transparent.src }}" alt="{{ module.content_img_transparent.alt|escape }}" width="540"
+                             style="display:block;width:100%;max-width:540px;height:auto;border:0;outline:0;text-decoration:none;">
+                      </a>
+                    {% else %}
+                      <img src="{{ module.content_img_transparent.src }}" alt="{{ module.content_img_transparent.alt|escape }}" width="540"
+                           style="display:block;width:100%;max-width:540px;height:auto;border:0;outline:0;text-decoration:none;">
+                    {% endif %}
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          {% endif %}
+
+          {% if module.content_img and module.content_img.src %}
+          <!-- FULL WIDTH HERO IMG -->
+          <tr>
+            <td align="left" style="padding:0;margin:0;background:#1a1a1a;border-radius:8px 8px 0 0;">
+              <img src="{{ module.content_img.src }}" alt="{{ module.content_img.alt|escape }}" width="600"
+                   style="display:block;width:100%;height:auto;border:0;outline:0;text-decoration:none;border-radius:8px 8px 0 0;">
+            </td>
+          </tr>
+          {% endif %}
+
+          {% if module.email_h2 %}
+          <!-- H2 -->
+          <tr>
+            <td data-px align="left" style="background:#1a1a1a;padding:32px 32px 0 32px;">
+              <h2 style="margin:0;font-family:Arial,Helvetica,sans-serif;font-weight:bold;font-size:24px;line-height:28px;color:#FEFDFD;">
+                {{ module.email_h2 }}
+              </h2>
+            </td>
+          </tr>
+          {% endif %}
+
+          {% if module.subheading_1 %}
+          <!-- SUBHEAD 1 -->
+          <tr>
+            <td data-px align="left" style="background:#1a1a1a;padding:32px 32px 0 32px;">
+              <h4 style="margin:0;font-family:Arial,Helvetica,sans-serif;font-weight:bold;font-size:16px;line-height:22px;color:#FAFAFA;">
+                {{ module.subheading_1 }}
+              </h4>
+            </td>
+          </tr>
+          {% endif %}
+
+          {% if module.subcontent_1_column_1 %}
+          <!-- 2 COLS WITH RIGHT DECOR BG -->
+          <tr>
+            <td data-px align="left"
+                style="background:#1a1a1a;padding:16px 32px 0 32px;
+                       background-image:url(https://go.3ss.tv/hubfs/bg_right.png);
+                       background-repeat:no-repeat;background-position:right 0;background-size:auto 100%;">
+              <!--[if mso]><table role="presentation" width="536" cellpadding="0" cellspacing="0"><tr><td width="260" valign="top"><![endif]-->
+              <table role="presentation" align="left" cellpadding="0" cellspacing="0" style="float:left;">
+                <tr>
+                  <td style="width:260px;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td style="font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:24px;color:#D1D1D1;">
+                          {{ module.subcontent_1_column_1 }}
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+              <!--[if mso]></td><td width="16"></td><td width="260" valign="top"><![endif]-->
+              <table role="presentation" align="right" cellpadding="0" cellspacing="0" style="float:right;">
+                <tr>
+                  <td style="width:260px;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td style="font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:24px;color:#D1D1D1;">
+                          {{ module.subcontent_1_column_2 }}
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+              <div style="clear:both;height:0;line-height:0;font-size:0;"></div>
+            </td>
+          </tr>
+          {% endif %}
+
+          {% if module.subheading_2 %}
+          <!-- SUBHEAD 2 -->
+          <tr>
+            <td data-px align="left" style="background:#1a1a1a;padding:32px 32px 0 32px;">
+              <h4 style="margin:0;font-family:Arial,Helvetica,sans-serif;font-weight:bold;font-size:16px;line-height:22px;color:#FAFAFA;">
+                {{ module.subheading_2 }}
+              </h4>
+            </td>
+          </tr>
+          {% endif %}
+
+          {% if module.description_2 %}
+          <!-- DESC 2 -->
+          <tr>
+            <td data-px align="left" style="background:#1a1a1a;padding:16px 32px 0 32px;">
+              <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:22px;color:#D1D1D1;">
+                {{ module.description_2 }}
+              </p>
+            </td>
+          </tr>
+          {% endif %}
+
+          {% if module.subcontent_1_button_text %}
+          <!-- BUTTON 1 (icon + text) -->
+          <tr>
+            <td data-px align="left" style="background:#1a1a1a;padding:32px 32px 0 32px;">
+              <table role="presentation" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width="32">
+                    <a href="{{ module.subcontent_1_button_link.url.href if module.subcontent_1_button_link and module.subcontent_1_button_link.url.href else '#' }}"
+                       {% if module.subcontent_1_button_link and module.subcontent_1_button_link.open_in_new_tab %}target="_blank"{% endif %}
+                       style="display:block;">
+                      <img src="https://go.3ss.tv/hubfs/arrow-right.png" width="32" height="32" alt="" style="display:block;border:0;">
+                    </a>
+                  </td>
+                  <td width="12"></td>
+                  <td>
+                    <a href="{{ module.subcontent_1_button_link.url.href if module.subcontent_1_button_link and module.subcontent_1_button_link.url.href else '#' }}"
+                       {% if module.subcontent_1_button_link and module.subcontent_1_button_link.open_in_new_tab %}target="_blank"{% endif %}
+                       style="font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:24px;color:#FFFFFF;text-decoration:none;font-weight:700;">
+                      {{ module.subcontent_1_button_text }}
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          {% endif %}
+
+          {% if module.subheading_3 %}
+          <!-- SUBHEAD 3 -->
+          <tr>
+            <td data-px align="left" style="background:#1a1a1a;padding:32px 32px 0 32px;">
+              <h4 style="margin:0;font-family:Arial,Helvetica,sans-serif;font-weight:bold;font-size:16px;line-height:22px;color:#FAFAFA;">
+                {{ module.subheading_3 }}
+              </h4>
+            </td>
+          </tr>
+          {% endif %}
+
+          {% if module.subcontent_2_richtext %}
+          <!-- RICHTEXT 2 -->
+          <tr>
+            <td data-px align="left" style="background:#1a1a1a;padding:16px 32px 0 32px;">
+              <div style="font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:22px;color:#D1D1D1;">
+                {{ module.subcontent_2_richtext }}
+              </div>
+            </td>
+          </tr>
+          {% endif %}
+
+          {% if module.subcontent_2_button_text %}
+          <!-- BUTTON 2 (icon + text) -->
+          <tr>
+            <td data-px align="left" style="background:#1a1a1a;padding:32px 32px 0 32px;">
+              <table role="presentation" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width="32">
+                    <a href="{{ module.subcontent_2_button_link.url.href if module.subcontent_2_button_link and module.subcontent_2_button_link.url.href else '#' }}"
+                       {% if module.subcontent_2_button_link and module.subcontent_2_button_link.open_in_new_tab %}target="_blank"{% endif %}
+                       style="display:block;">
+                      <img src="https://go.3ss.tv/hubfs/arrow-right.png" width="32" height="32" alt="" style="display:block;border:0;">
+                    </a>
+                  </td>
+                  <td width="12"></td>
+                  <td>
+                    <a href="{{ module.subcontent_2_button_link.url.href if module.subcontent_2_button_link and module.subcontent_2_button_link.url.href else '#' }}"
+                       {% if module.subcontent_2_button_link and module.subcontent_2_button_link.open_in_new_tab %}target="_blank"{% endif %}
+                       style="font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:24px;color:#FFFFFF;text-decoration:none;font-weight:700;">
+                      {{ module.subcontent_2_button_text }}
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          {% endif %}
+
+          {% if module.link_text %}
+          <!-- OPTIONAL LINK LINE -->
+          <tr>
+            <td data-px align="left" style="background:#1a1a1a;padding:16px 32px 0 32px;">
+              <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:24px;color:#D1D1D1;">
+                <a href="{{ module.link_link.url.href if module.link_link and module.link_link.url.href else '#' }}"
+                   {% if module.link_link and module.link_link.open_in_new_tab %}target="_blank"{% endif %}
+                   style="color:#F20D1E;text-decoration:none;font-weight:700;">
+                  {{ module.link_text or 'Download' }}
+                </a>
+                <span style="color:#D1D1D1;"> {{ module.text_after_link or 'the Whitepaper: The Future of Conversational TV' }}</span>
+              </p>
+            </td>
+          </tr>
+          {% endif %}
+
+          <!-- bottom spacer keeps radius -->
+          <tr>
+            <td align="left" style="background:#1a1a1a;border-radius:0 0 8px 8px;padding:0 16px 32px 16px;">
+              <div style="height:1px;line-height:1px;font-size:0;border-bottom:1px solid #1a1a1a;">&nbsp;</div>
+            </td>
+          </tr>
+
+        </table>
+        <!--[if mso]></td></tr></table><![endif]-->
+      </td>
+    </tr>
+  </table>
+{% endif %}
+</body>
+</html>
