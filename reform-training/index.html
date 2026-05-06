@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101418">
+    <title>Reform Training</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Online-first workout log</p>
+          <h1>Reform Training</h1>
+        </div>
+        <div class="sync-pill" id="syncStatus">Connecting</div>
+      </header>
+
+      <section class="hero">
+        <div>
+          <p class="hero-kicker">Today</p>
+          <h2 id="todayTitle">Fullbody 1</h2>
+          <p id="todayMeta">Shared log for your gym crew.</p>
+        </div>
+        <div class="hero-actions">
+          <label class="field compact">
+            <span>User</span>
+            <select id="userSelect"></select>
+          </label>
+          <label class="field compact">
+            <span>Rename selected user</span>
+            <input id="userNameInput" placeholder="User name">
+          </label>
+          <div class="user-actions">
+            <button class="ghost" id="renameUserBtn" type="button">Save name</button>
+            <button class="ghost" id="addGuestBtn" type="button">Add guest</button>
+            <button class="ghost danger" id="deleteUserBtn" type="button">Delete user</button>
+          </div>
+          <button class="primary" id="startSessionBtn" type="button">Start session</button>
+        </div>
+      </section>
+
+      <nav class="tabs" aria-label="Main views">
+        <button class="tab active" data-view="workout" type="button">Workout</button>
+        <button class="tab" data-view="history" type="button">History</button>
+        <button class="tab" data-view="progress" type="button">Progress</button>
+        <button class="tab" data-view="settings" type="button">Program</button>
+      </nav>
+
+      <section class="layout">
+        <aside class="sidebar">
+          <div class="panel">
+            <div class="panel-head">
+              <h3>Training day</h3>
+            </div>
+            <div class="day-switch" id="daySwitch"></div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <h3>Session</h3>
+            </div>
+            <div class="session-card">
+              <div>
+                <span class="muted">Status</span>
+                <strong id="sessionState">Not started</strong>
+              </div>
+              <button class="ghost danger" id="skipDayBtn" type="button">Skip day</button>
+            </div>
+          </div>
+        </aside>
+
+        <section class="content">
+          <section class="view active" id="workoutView">
+            <div class="toolbar">
+              <h3>Exercises</h3>
+              <button class="ghost" id="addExerciseBtn" type="button">Add exercise</button>
+            </div>
+            <div class="exercise-list" id="exerciseList"></div>
+          </section>
+
+          <section class="view" id="historyView">
+            <div class="toolbar">
+              <h3>Shared history</h3>
+              <button class="ghost" id="refreshBtn" type="button">Refresh</button>
+            </div>
+            <div class="history-list" id="historyList"></div>
+          </section>
+
+          <section class="view" id="progressView">
+            <div class="toolbar">
+              <h3>Progress</h3>
+              <select id="progressExercise"></select>
+            </div>
+            <div class="chart-card">
+              <canvas id="progressChart" width="900" height="360"></canvas>
+            </div>
+            <div class="stats-grid" id="statsGrid"></div>
+          </section>
+
+          <section class="view" id="settingsView">
+            <div class="toolbar">
+              <h3>Program editor</h3>
+              <div class="toolbar-actions">
+                <button class="ghost" id="addDayBtn" type="button">Add day</button>
+                <button class="ghost" id="resetProgramBtn" type="button">Reset current user</button>
+              </div>
+            </div>
+            <div class="editor-list" id="programEditor"></div>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <dialog id="exerciseDialog">
+      <form method="dialog" class="modal">
+        <h3 id="dialogTitle">Exercise</h3>
+        <label class="field">
+          <span>Name</span>
+          <input id="exerciseName" required>
+        </label>
+        <label class="field">
+          <span>Machine / note</span>
+          <input id="exerciseMachine">
+        </label>
+        <label class="field">
+          <span>Category</span>
+          <select id="exerciseCategory">
+            <option value="chest">Chest</option>
+            <option value="back">Back</option>
+            <option value="shoulders">Shoulders</option>
+            <option value="arms">Arms</option>
+            <option value="legs">Legs</option>
+            <option value="calves">Calves</option>
+            <option value="glutes">Glutes</option>
+            <option value="core">Core</option>
+          </select>
+        </label>
+        <div class="modal-actions">
+          <button class="ghost" value="cancel" type="submit">Cancel</button>
+          <button class="primary" id="saveExerciseBtn" value="default" type="button">Save</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
