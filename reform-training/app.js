@@ -480,19 +480,79 @@ function renderHistory() {
     return;
   }
   els.historyList.innerHTML = state.sessions.slice(0, 20).map(session => {
-    const volume = session.exercises.reduce((sum, exercise) => {
-      return sum + exercise.sets.reduce((setSum, set) => setSum + Number(set.weight || 0) * Number(set.reps || 0), 0);
-    }, 0);
+    const volume = sessionVolume(session);
+    const canCopy = session.status === "completed" && session.exercises.length;
     return `
-      <div class="history-row">
+      <div class="history-row" data-session="${session.id}">
         <div>
           <strong>${escapeHtml(session.dayName)}</strong>
           <p class="muted">${new Date(session.date).toLocaleString("ru-RU")} · ${escapeHtml(session.user)}</p>
         </div>
-        <span class="badge">${session.status} · ${Math.round(volume)} kg</span>
+        <div class="history-actions">
+          <span class="badge">${session.status} · ${Math.round(volume)} kg</span>
+          ${canCopy ? `<button class="ghost" data-copy-session="${session.id}" type="button">Copy</button>` : ""}
+        </div>
       </div>
     `;
   }).join("");
+}
+
+function sessionVolume(session) {
+  return session.exercises.reduce((sum, exercise) => {
+    return sum + exercise.sets.reduce((setSum, set) => setSum + Number(set.weight || 0) * Number(set.reps || 0), 0);
+  }, 0);
+}
+
+function formatSessionText(session) {
+  const started = new Date(session.date).toLocaleString("ru-RU");
+  const finished = session.finishedAt ? new Date(session.finishedAt).toLocaleString("ru-RU") : "";
+  const lines = [
+    `${session.user} — ${session.dayName}`,
+    finished ? `${started} → ${finished}` : started,
+    ""
+  ];
+
+  session.exercises.forEach(exercise => {
+    const doneSets = exercise.sets.filter(set => set.done);
+    const sets = doneSets.length ? doneSets : exercise.sets.filter(set => set.weight || set.reps);
+    if (!sets.length) return;
+    const setText = sets.map(set => {
+      const weight = set.weight ? `${set.weight}kg` : "bodyweight";
+      const reps = set.reps ? `x ${set.reps}` : "";
+      return `${weight} ${reps}`.trim();
+    }).join(", ");
+    lines.push(`${exercise.name}: ${setText}`);
+  });
+
+  lines.push("");
+  lines.push(`Volume: ${Math.round(sessionVolume(session))} kg`);
+  return lines.join("\n");
+}
+
+async function copySession(sessionId) {
+  const session = state.sessions.find(item => item.id === sessionId);
+  if (!session) return;
+  const text = formatSessionText(session);
+  try {
+    await navigator.clipboard.writeText(text);
+  } catch {
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.setAttribute("readonly", "");
+    textarea.style.position = "fixed";
+    textarea.style.opacity = "0";
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand("copy");
+    textarea.remove();
+  }
+  const button = document.querySelector(`[data-copy-session="${sessionId}"]`);
+  if (button) {
+    button.textContent = "Copied";
+    setTimeout(() => {
+      button.textContent = "Copy";
+    }, 1400);
+  }
 }
 
 function renderProgressOptions() {
@@ -794,6 +854,11 @@ document.addEventListener("click", event => {
   const deleteDay = event.target.closest("[data-delete-day]");
   if (deleteDay) {
     deleteTrainingDay(deleteDay.dataset.deleteDay);
+  }
+
+  const copyButton = event.target.closest("[data-copy-session]");
+  if (copyButton) {
+    copySession(copyButton.dataset.copySession);
   }
 });
 
