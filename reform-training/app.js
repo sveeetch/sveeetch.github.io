@@ -70,6 +70,7 @@ const DEFAULT_DASHA_PROGRAM = [
 ];
 
 const DEFAULT_USERS = ["Dima", "Dasha", "Artem", "Danil", "Guest"];
+const APP_SCHEMA_VERSION = 4;
 const DEFAULT_PROGRAMS_BY_USER = {
   Dima: DEFAULT_PROGRAM,
   Artem: DEFAULT_PROGRAM,
@@ -235,17 +236,19 @@ async function syncFromCloud() {
   try {
     const rows = await api("workout_state?id=eq.reform&select=*");
     if (rows[0]?.payload) {
+      const cloudPayload = migrateCloudPayload(rows[0].payload);
       state = {
         ...state,
-        programsByUser: rows[0].payload.programsByUser || migrateProgramPayload(rows[0].payload.program),
-        sessions: rows[0].payload.sessions || state.sessions,
-        users: rows[0].payload.users?.length ? rows[0].payload.users : state.users,
-        selectedDay: rows[0].payload.selectedDay || state.selectedDay,
-        selectedUser: rows[0].payload.selectedUser || state.selectedUser,
-        currentSessionId: rows[0].payload.currentSessionId || "",
+        programsByUser: cloudPayload.programsByUser,
+        sessions: cloudPayload.sessions,
+        users: cloudPayload.users,
+        selectedDay: cloudPayload.selectedDay,
+        selectedUser: cloudPayload.selectedUser,
+        currentSessionId: cloudPayload.currentSessionId,
         onlineReady: true
       };
       normalizeState();
+      if (cloudPayload.needsSave) await syncToCloud();
     } else {
       await syncToCloud();
       state.onlineReady = true;
@@ -263,6 +266,7 @@ async function syncToCloud() {
   const payload = {
     id: "reform",
     payload: {
+      schemaVersion: APP_SCHEMA_VERSION,
       programsByUser: state.programsByUser,
       sessions: state.sessions,
       users: state.users,
@@ -284,6 +288,30 @@ async function syncToCloud() {
     state.onlineReady = false;
     status("Saved locally", "local");
   }
+}
+
+function migrateCloudPayload(payload) {
+  if (payload.schemaVersion !== APP_SCHEMA_VERSION) {
+    return {
+      schemaVersion: APP_SCHEMA_VERSION,
+      programsByUser: structuredClone(DEFAULT_PROGRAMS_BY_USER),
+      sessions: [],
+      users: structuredClone(DEFAULT_USERS),
+      selectedDay: "fullbody-1",
+      selectedUser: "Dima",
+      currentSessionId: "",
+      needsSave: true
+    };
+  }
+  return {
+    programsByUser: payload.programsByUser || migrateProgramPayload(payload.program),
+    sessions: payload.sessions || [],
+    users: payload.users?.length ? payload.users : structuredClone(DEFAULT_USERS),
+    selectedDay: payload.selectedDay || "fullbody-1",
+    selectedUser: payload.selectedUser || "Dima",
+    currentSessionId: payload.currentSessionId || "",
+    needsSave: false
+  };
 }
 
 function migrateProgramPayload(program) {
