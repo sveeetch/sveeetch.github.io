@@ -152,7 +152,8 @@ h3 {
 
 .tab,
 .ghost,
-.primary {
+.primary,
+.secondary {
   min-height: 42px;
   border-radius: var(--radius);
   padding: 0 14px;
@@ -572,4 +573,12 @@ canvas {
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation-duration: .22s;
+}
+
+
+.secondary {
+  border: 1px solid var(--line);
+  background: rgba(112, 124, 138, .26);
+  color: #d7e0ea;
+  font-weight: 600;
 }
