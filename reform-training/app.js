@@ -438,19 +438,28 @@ function renderWorkout() {
   const session = currentSession();
   els.sessionState.textContent = session ? `${session.status} · ${session.user}` : "Not started";
   els.startSessionBtn.textContent = session ? "Finish session" : "Start session";
+  els.startSessionBtn.classList.toggle("primary", !session);
+  els.startSessionBtn.classList.toggle("secondary", Boolean(session));
   const exercises = session?.exercises || currentDay().exercises;
   els.exerciseList.innerHTML = exercises.map((exercise, index) => exerciseCard(exercise, index, Boolean(session))).join("");
 }
 
 function exerciseCard(exercise, index, hasSession) {
-  const sets = exercise.sets.map((set, setIndex) => `
+  const nextPendingSetIndex = exercise.sets.findIndex(set => !set.done);
+  const sets = exercise.sets.map((set, setIndex) => {
+    const isNextPendingSet = hasSession && !set.done && setIndex === nextPendingSetIndex;
+    const markButtonClass = isNextPendingSet ? "primary" : "ghost";
+    const markButtonLabel = set.done ? "Done" : (isNextPendingSet ? "✓" : "Mark");
+
+    return `
     <div class="set-row ${set.done ? "done" : ""}" data-exercise="${exercise.id}" data-set="${set.id}">
       <div class="set-number">${setIndex + 1}</div>
       <input inputmode="decimal" aria-label="Weight" value="${escapeHtml(set.weight)}" data-field="weight" placeholder="kg">
       <input inputmode="numeric" aria-label="Reps" value="${escapeHtml(set.reps)}" data-field="reps" placeholder="reps">
-      <button class="ghost" data-action="toggle-set" type="button">${set.done ? "Done" : "Mark"}</button>
+      <button class="${markButtonClass}" data-action="toggle-set" type="button">${markButtonLabel}</button>
     </div>
-  `).join("");
+  `;
+  }).join("");
 
   return `
     <article class="exercise-card" data-exercise="${exercise.id}">
@@ -465,7 +474,7 @@ function exerciseCard(exercise, index, hasSession) {
         <div class="exercise-actions">
           <button class="ghost" data-action="move-up" ${index === 0 ? "disabled" : ""} type="button">Up</button>
           <button class="ghost" data-action="move-down" type="button">Down</button>
-          <button class="ghost" data-action="replace" type="button">${hasSession ? "Replace today" : "Edit"}</button>
+          <button class="secondary" data-action="replace" type="button">${hasSession ? "Replace today" : "✎ Edit"}</button>
           ${hasSession ? `<button class="ghost danger" data-action="skip-exercise" type="button">Skip</button>` : ""}
         </div>
       </div>
