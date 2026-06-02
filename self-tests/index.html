@@ -459,6 +459,9 @@
         n: "var(--red)",
         z: "var(--cyan)",
         ad: "var(--pink)",
+        vata: "var(--cyan)",
+        pitta: "var(--red)",
+        kapha: "var(--green)",
       };
       const tests = {
         pac: {
@@ -670,6 +673,44 @@
               "Я всегда признаю свою ошибку сразу и без внутреннего сопротивления.",
               "l",
             ],
+          ],
+        },
+        dosha: {
+          id: "dosha",
+          tab: "Доши",
+          title: "Тест на определение типа дош",
+          hint: "0 — совсем не про меня, 4 — очень про меня. Тест показывает выраженность Ваты, Питты и Капхи как ориентир для саморефлексии, а не медицинский вывод.",
+          qs: [
+            ["Я быстро загораюсь новыми идеями и легко переключаюсь.", "vata"],
+            ["Мой темп может быть неровным: то много энергии, то спад.", "vata"],
+            ["Мне сложно долго удерживать один и тот же режим дня.", "vata"],
+            ["Я чувствителен к шуму, суете и избытку впечатлений.", "vata"],
+            ["В стрессовой ситуации я могу становиться тревожным или беспокойным.", "vata"],
+            ["Мне часто хочется движения, перемен, путешествий или новых впечатлений.", "vata"],
+            ["Я могу быстро говорить, думать или перескакивать между темами.", "vata"],
+            ["Мне важно ощущение свободы, пространства и лёгкости.", "vata"],
+            ["Когда я устаю, мне бывает трудно заземлиться и собраться.", "vata"],
+            ["Я легче вдохновляюсь идеей, чем довожу её до рутины.", "vata"],
+            ["Я люблю ясные цели, эффективность и понятный результат.", "pitta"],
+            ["Внутри меня есть сильный драйв улучшать, исправлять и добиваться.", "pitta"],
+            ["Я быстро замечаю, что работает плохо или нелогично.", "pitta"],
+            ["В споре мне важно докопаться до сути и аргументов.", "pitta"],
+            ["Я могу раздражаться, когда люди действуют медленно или хаотично.", "pitta"],
+            ["Мне близка конкуренция, амбиция или желание быть сильным в своём деле.", "pitta"],
+            ["Когда я включён, я действую интенсивно и могу давить темпом.", "pitta"],
+            ["Мне важно уважение к моей компетентности и самостоятельности.", "pitta"],
+            ["В стрессе я скорее становлюсь резким, критичным или нетерпеливым.", "pitta"],
+            ["Мне легче, когда есть структура, план и измеримый прогресс.", "pitta"],
+            ["Я ценю стабильность, спокойствие и предсказуемый ритм.", "kapha"],
+            ["Мне важно, чтобы рядом было тепло, надёжность и чувство дома.", "kapha"],
+            ["Я обычно не люблю спешку и резкие перемены без подготовки.", "kapha"],
+            ["Мне легко быть терпеливым и поддерживающим для близких.", "kapha"],
+            ["Я могу долго держаться за привычное, даже если пора менять.", "kapha"],
+            ["В стрессе я скорее закрываюсь, замираю или откладываю действия.", "kapha"],
+            ["Мне нравится телесный комфорт: сон, еда, уют, приятная среда.", "kapha"],
+            ["Я могу быть устойчивым и надёжным, когда другим не хватает опоры.", "kapha"],
+            ["Мне сложно быстро раскачаться, но если начал, я могу идти долго.", "kapha"],
+            ["Я предпочитаю глубокие устойчивые связи поверх множества случайных контактов.", "kapha"],
           ],
         },
         coping: {
@@ -1165,6 +1206,11 @@
         selfBlame: "Самообвинение",
         denial: "Отрицание",
       };
+      const doshaNames = {
+        vata: "Вата",
+        pitta: "Питта",
+        kapha: "Капха",
+      };
       let active = "pac",
         latest = null;
       const $ = (id) => document.getElementById(id);
@@ -1303,6 +1349,46 @@
             l >= 75
               ? "Высокая шкала идеализации: результат может быть слишком “правильным”."
               : "Шкала идеализации в нормальном диапазоне.",
+        };
+      }
+      function calcDosha(a) {
+        const r = { vata: 0, pitta: 0, kapha: 0 };
+        a.forEach((v, i) => (r[tests.dosha.qs[i][1]] += v));
+        const scores = Object.fromEntries(
+            Object.entries(r).map(([key, score]) => [
+              key,
+              {
+                key,
+                title: doshaNames[key],
+                score,
+                max: 40,
+                percent: pct(score, 40),
+                color: C[key],
+              },
+            ]),
+          ),
+          sorted = Object.values(scores).sort((a, b) => b.percent - a.percent),
+          dominantDosha = sorted[0].title,
+          secondaryDosha = sorted[1].title,
+          gap = sorted[0].percent - sorted[1].percent,
+          profile =
+            gap <= 10
+              ? `${dominantDosha} / ${secondaryDosha}`
+              : dominantDosha;
+        return {
+          type: "dosha",
+          rawScores: r,
+          scores,
+          dominantDosha,
+          secondaryDosha,
+          profile,
+          balance:
+            gap <= 10
+              ? "Смешанный профиль: две доши выражены близко."
+              : "Одна доша заметно лидирует в профиле.",
+          summary: `${profile}: ${sorted
+            .map((x) => `${x.title} ${x.percent}%`)
+            .join(", ")}.`,
         };
       }
       function calcCoping(a) {
@@ -1526,6 +1612,7 @@
         if (active === "location") return calcLocation(a);
         if (active === "pac") return calcPac(a);
         if (active === "temp") return calcTemp(a);
+        if (active === "dosha") return calcDosha(a);
         return calcCoping(a);
       }
       function blocks(res) {
@@ -1603,6 +1690,42 @@
             {
               title: "Что попробовать",
               text: "1) назвать проблему одним предложением; 2) выбрать один следующий шаг; 3) отделить ответственность от самообвинения; 4) просить конкретную помощь; 5) ставить срок, когда возвращаешься к сложной теме.",
+            },
+          ];
+        }
+        if (res.type === "dosha") {
+          const s = res.scores,
+            dominant = res.dominantDosha,
+            secondary = res.secondaryDosha;
+          return [
+            {
+              title: `Главная доша: ${res.profile}`,
+              text: `${res.summary} ${res.balance} Используй результат как язык для наблюдения за ритмом, стрессом и привычками, а не как диагноз.`,
+            },
+            {
+              title: "Вата",
+              text:
+                s.vata.percent >= 65
+                  ? "Вата выражена сильно: много движения, идей, чувствительности к переменам и стимулам. Важно добавлять режим, тепло, сон и заземляющие практики."
+                  : "Вата не выглядит ведущей, но её стоит учитывать в периоды переезда, перегруза, неопределённости и недосыпа.",
+            },
+            {
+              title: "Питта",
+              text:
+                s.pitta.percent >= 65
+                  ? "Питта выражена сильно: есть фокус, цель, требовательность и интенсивность. Важно следить, чтобы драйв не превращался в раздражение и перегрев."
+                  : "Питта не доминирует, но помогает там, где нужны ясность, решения, структура и честная обратная связь.",
+            },
+            {
+              title: "Капха",
+              text:
+                s.kapha.percent >= 65
+                  ? "Капха выражена сильно: много устойчивости, терпения, заботы и потребности в спокойствии. Важно не застревать в инерции и мягко добавлять движение."
+                  : "Капха не выглядит ведущей, но её качества полезны для восстановления, стабильности, отношений и долгих проектов.",
+            },
+            {
+              title: "Как читать профиль",
+              text: `Смотри не только на лидера (${dominant}), но и на вторую дошу (${secondary}): часто именно их сочетание объясняет, почему в одних ситуациях хочется скорости, а в других — покоя или контроля.`,
             },
           ];
         }
@@ -1747,6 +1870,21 @@
               percent: s.percent,
               color: i < 3 ? C.p : C.z,
             })),
+          );
+        } else if (res.type === "dosha") {
+          $("summary").innerHTML =
+            `<div class="tile"><small>Профиль</small><b style="font-size:22px">${res.profile}</b></div><div class="tile"><small>Главная доша</small><b style="font-size:22px">${res.dominantDosha}</b></div><div class="tile"><small>Вторая доша</small><b style="font-size:22px">${res.secondaryDosha}</b></div><p class="subtitle">Баланс дош</p><p class="caption">${res.balance}</p>`;
+          map(res);
+          bar(
+            Object.values(res.scores)
+              .sort((a, b) => b.percent - a.percent)
+              .map((s) => ({
+                title: s.title,
+                value: s.score,
+                max: s.max,
+                percent: s.percent,
+                color: s.color,
+              })),
           );
         } else if (res.type === "pac") {
           $("summary").innerHTML =
@@ -1954,9 +2092,11 @@
                       ? it.result.topStrategies[0].title
                       : it.testId === "temp"
                         ? it.result.temperament
-                        : Object.values(it.result.groups).sort(
-                            (a, b) => b.balancePercent - a.balancePercent,
-                          )[0].title;
+                        : it.testId === "dosha"
+                          ? it.result.profile
+                          : Object.values(it.result.groups).sort(
+                              (a, b) => b.balancePercent - a.balancePercent,
+                            )[0].title;
                 return `<div class="hi"><div><b>${it.testName}</b><span>${d} · ${m}</span></div><button class="secondary" type="button" data-i="${i}" style="padding:8px 10px">JSON</button></div>`;
               })
               .join("")
