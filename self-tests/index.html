@@ -321,6 +321,63 @@
         font-weight: 900;
         font-size: 13px;
       }
+      .respondent {
+        display: grid;
+        gap: 10px;
+        margin-top: 16px;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: var(--soft);
+      }
+      .respondentTitle {
+        margin: 0;
+        font-weight: 900;
+      }
+      .respondentOptions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .respondentOptions input {
+        position: absolute;
+        opacity: 0;
+      }
+      .respondentOptions label {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 9px 12px;
+        background: #fff;
+        font-weight: 900;
+        cursor: pointer;
+      }
+      .respondentOptions input:checked + label {
+        background: var(--text);
+        border-color: var(--text);
+        color: #fff;
+      }
+      .respondent input[type="text"] {
+        display: none;
+        width: 100%;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #fff;
+        padding: 11px 12px;
+        font: inherit;
+      }
+      .inlineError {
+        display: none;
+        margin: 0;
+        color: var(--red);
+        font-size: 13px;
+        font-weight: 900;
+      }
+      .syncStatus {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 800;
+      }
       .history {
         display: grid;
         gap: 8px;
@@ -411,6 +468,26 @@
             <div id="map" class="map"></div>
             <div id="bars" class="bars"></div>
             <div id="report" class="report"></div>
+            <div id="respondent" class="respondent">
+              <p class="respondentTitle">Кто проходил тест?</p>
+              <div class="respondentOptions">
+                <div>
+                  <input id="respondent_dima" name="respondentPreset" value="dima" type="radio" />
+                  <label for="respondent_dima">Дима</label>
+                </div>
+                <div>
+                  <input id="respondent_dasha" name="respondentPreset" value="dasha" type="radio" />
+                  <label for="respondent_dasha">Даша</label>
+                </div>
+                <div>
+                  <input id="respondent_other" name="respondentPreset" value="other" type="radio" />
+                  <label for="respondent_other">Другое</label>
+                </div>
+              </div>
+              <input id="respondentName" type="text" maxlength="64" placeholder="Введите имя" />
+              <p id="respondentErr" class="inlineError">Выберите, кто проходил тест, чтобы сохранить или скопировать результат.</p>
+              <p id="saveStatus" class="syncStatus">Выберите, кто проходил тест, чтобы сохранить или экспортировать результат.</p>
+            </div>
             <div class="actions">
               <button class="secondary" type="button" id="copy">
                 Copy result</button
@@ -427,6 +504,12 @@
             <p class="note">
               Это не диагноз, а инструмент саморефлексии. Для пересылки
               результата используй JSON или скрин.
+            </p>
+            <p class="note">
+              Результат сохраняется локально в этом браузере. Если
+              онлайн-синхронизация включена, анонимная копия результата вместе
+              с выбранным именем также может быть сохранена в базе проекта для
+              анализа.
             </p>
           </div>
           <div
@@ -452,6 +535,19 @@
     </main>
     <script>
       const KEY = "selfTestsAppResultsV4";
+      const APP_VERSION = "2026-06-02-online-results";
+      const EXPORT_BLOCKED_MESSAGE =
+        "Выберите, кто проходил тест, чтобы сохранить или скопировать результат.";
+      const ONLINE_RESULTS_CONFIG = {
+        enabled: true,
+        provider: "supabase",
+        // Put the existing Supabase Project URL here, for example:
+        // supabaseUrl: "https://YOUR_EXISTING_PROJECT_ID.supabase.co",
+        supabaseUrl: "https://jruzuqzfdzqyhpejbnjq.supabase.co",
+        // Put the existing public anon key here. Never use service_role in frontend code.
+        supabaseAnonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpydXp1cXpmZHpxeWhwZWpibmpxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgwMzkyMDgsImV4cCI6MjA5MzYxNTIwOH0.wO3993L5kMmQDXPIiv04UfFiteN_HgGHzYolLNIS70M",
+        tableName: "test_results",
+      };
       const C = {
         p: "var(--blue)",
         a: "var(--green)",
@@ -1212,7 +1308,9 @@
         kapha: "Капха",
       };
       let active = "pac",
-        latest = null;
+        latest = null,
+        respondentState = { preset: "", customName: "" },
+        saveStatus = { enabled: false, success: false, status: "disabled" };
       const $ = (id) => document.getElementById(id);
       function hist() {
         try {
@@ -1222,8 +1320,181 @@
         }
       }
       function save(d) {
-        localStorage.setItem(KEY, JSON.stringify([d, ...hist()].slice(0, 30)));
+        const existing = hist().filter((item) => item.id !== d.id);
+        localStorage.setItem(KEY, JSON.stringify([d, ...existing].slice(0, 30)));
         renderHist();
+      }
+      function trimName(value) {
+        return String(value || "").trim().slice(0, 64);
+      }
+      function getRespondent() {
+        if (respondentState.preset === "dima") {
+          return { preset: "dima", name: "Дима" };
+        }
+        if (respondentState.preset === "dasha") {
+          return { preset: "dasha", name: "Даша" };
+        }
+        if (respondentState.preset === "other") {
+          return { preset: "other", name: trimName(respondentState.customName) };
+        }
+        return null;
+      }
+      function respondentValid() {
+        const respondent = getRespondent();
+        if (!respondent || !respondent.name) {
+          return { valid: false, respondent: null, message: EXPORT_BLOCKED_MESSAGE };
+        }
+        return { valid: true, respondent, message: "" };
+      }
+      function setRespondent(preset, customName = respondentState.customName) {
+        respondentState = { preset: preset || "", customName: trimName(customName) };
+        renderRespondentState();
+        if (latest) finalizeLatest();
+      }
+      function renderRespondentState() {
+        ["dima", "dasha", "other"].forEach((preset) => {
+          const el = $(`respondent_${preset}`);
+          if (el) el.checked = respondentState.preset === preset;
+        });
+        const input = $("respondentName");
+        if (input) {
+          input.value = respondentState.customName;
+          input.style.display = respondentState.preset === "other" ? "block" : "none";
+        }
+      }
+      function showRespondentError(message = "") {
+        const err = $("respondentErr");
+        if (!err) return;
+        err.textContent = message;
+        err.style.display = message ? "block" : "none";
+      }
+      function renderSaveStatus(text) {
+        const el = $("saveStatus");
+        if (el) el.textContent = text;
+      }
+      function requireExportReady() {
+        const check = respondentValid();
+        showRespondentError(check.valid ? "" : check.message);
+        if (!check.valid) renderSaveStatus("Выберите, кто проходил тест, чтобы сохранить или экспортировать результат.");
+        return check.valid;
+      }
+      function enrichPayload(payload, respondent) {
+        payload.respondent = respondent;
+        return payload;
+      }
+      function isOnlineConfigValid(config = ONLINE_RESULTS_CONFIG) {
+        const supabaseUrl = config?.supabaseUrl || "";
+        return !!(
+          config &&
+          config.enabled &&
+          config.provider === "supabase" &&
+          /^https:\/\/[^\s/]+\.supabase\.co\/?$/.test(supabaseUrl) &&
+          !/YOUR_EXISTING|PROJECT_ID/i.test(supabaseUrl) &&
+          config.supabaseAnonKey &&
+          !/YOUR_EXISTING|ANON_KEY|SERVICE_ROLE/i.test(config.supabaseAnonKey) &&
+          config.tableName
+        );
+      }
+      function resultProfile(payload) {
+        return (
+          payload.result?.profile ||
+          payload.profile ||
+          payload.result?.mainProfile ||
+          payload.result?.dominantDosha ||
+          payload.result?.lifestyleProfile ||
+          payload.result?.temperament ||
+          payload.result?.topStrategies?.[0]?.title ||
+          null
+        );
+      }
+      function toSupabaseRow(payload) {
+        if (!payload || !payload.respondent?.name) {
+          throw new Error("Valid respondent is required.");
+        }
+        return {
+          respondent_name: payload.respondent.name,
+          respondent_preset: payload.respondent.preset,
+          test_id: payload.testId || payload.test_id || tests[active]?.id || active || null,
+          test_name: payload.testName || tests[active]?.title || null,
+          result_type: payload.result?.type || payload.type || null,
+          profile: resultProfile(payload),
+          summary: payload.result?.summary || payload.summary || null,
+          raw_payload: payload,
+          user_agent: navigator.userAgent || null,
+          page_url: window.location.href || null,
+          app_version: typeof APP_VERSION === "undefined" ? null : APP_VERSION,
+          source: "self-tests",
+        };
+      }
+      async function saveResultOnline(payload, config = ONLINE_RESULTS_CONFIG, fetcher) {
+        if (!isOnlineConfigValid(config)) {
+          return {
+            enabled: false,
+            success: false,
+            status: "disabled",
+            error: "Supabase config is missing or invalid.",
+          };
+        }
+        if (!payload || !payload.respondent?.name) {
+          return { enabled: true, success: false, status: "failed", error: "Valid respondent is required." };
+        }
+        try {
+          const post = fetcher || (typeof fetch === "function" ? fetch : null);
+          if (!post) {
+            return { enabled: true, success: false, status: "failed", error: "Fetch API is unavailable." };
+          }
+          const row = toSupabaseRow(payload),
+            base = config.supabaseUrl.replace(/\/$/, ""),
+            table = encodeURIComponent(config.tableName),
+            response = await post(`${base}/rest/v1/${table}`, {
+              method: "POST",
+              headers: {
+                apikey: config.supabaseAnonKey,
+                Authorization: `Bearer ${config.supabaseAnonKey}`,
+                "Content-Type": "application/json",
+                Prefer: "return=minimal",
+              },
+              body: JSON.stringify(row),
+            });
+          if (!response.ok) {
+            const text = response.text ? await response.text() : "";
+            return { enabled: true, success: false, status: "failed", error: `Supabase ${response.status}: ${text}`.trim() };
+          }
+          return { enabled: true, success: true, status: "saved" };
+        } catch (e) {
+          return { enabled: true, success: false, status: "failed", error: e.message || String(e) };
+        }
+      }
+      function onlineStatusText(result) {
+        if (!result.enabled || result.status === "disabled") return "Saved locally. Online sync disabled";
+        if (result.success) return "Saved online";
+        return "Saved locally. Online sync failed.";
+      }
+      function finalizeLatest() {
+        const check = respondentValid();
+        if (!latest || !check.valid) {
+          requireExportReady();
+          return false;
+        }
+        enrichPayload(latest, check.respondent);
+        latest.savedLocallyAt = latest.savedLocallyAt || new Date().toISOString();
+        showRespondentError("");
+        save(latest);
+        if ($("out")) $("out").value = copyPayload();
+        const onlineKey = `${check.respondent.preset}:${check.respondent.name}`;
+        if (latest.onlineSaveAttemptedFor !== onlineKey) {
+          latest.onlineSaveAttemptedFor = onlineKey;
+          renderSaveStatus("Saved locally. Online sync pending...");
+          saveResultOnline(latest).then((result) => {
+            saveStatus = result;
+            latest.onlineSaveStatus = result.status;
+            renderSaveStatus(onlineStatusText(result));
+            save(latest);
+          });
+        } else {
+          renderSaveStatus(onlineStatusText(saveStatus));
+        }
+        return true;
       }
       function renderTabs() {
         $("tabs").innerHTML = Object.entries(tests)
@@ -1836,6 +2107,9 @@
       function render(res, a) {
         $("empty").style.display = "none";
         $("res").style.display = "block";
+        renderRespondentState();
+        showRespondentError("");
+        renderSaveStatus("Выберите, кто проходил тест, чтобы сохранить или экспортировать результат.");
         if (res.type === "location") {
           $("summary").innerHTML =
             `<div class="tile"><small>Main profile</small><b style="font-size:22px">${res.lifestyleProfile}</b></div><div class="tile"><small>Top priorities</small><b>${res.topPriorities.length}</b></div><div class="tile"><small>Deal-breakers</small><b>${res.dealBreakers.length}</b></div><p class="subtitle">Recommended location types</p><p class="caption">${res.recommendedLocationTypes.join("; ")}</p>`;
@@ -2028,7 +2302,7 @@
         }
         $("out").value = copyPayload();
         $("ok").style.display = "none";
-        save(latest);
+        if (respondentValid().valid) finalizeLatest();
       }
       function calculate() {
         const a = answers();
@@ -2049,10 +2323,14 @@
         $("map").style.display = "none";
         $("export").style.display = "none";
         $("ok").style.display = "none";
+        showRespondentError("");
+        renderSaveStatus("Выберите, кто проходил тест, чтобы сохранить или экспортировать результат.");
         latest = null;
       }
       function reset() {
         document.getElementById("form").reset();
+        respondentState = { preset: "", customName: "" };
+        renderRespondentState();
         resetResult();
       }
       function dl(data, name) {
@@ -2070,9 +2348,10 @@
       }
       function copyPayload() {
         if (!latest) return "";
+        if (!requireExportReady()) return EXPORT_BLOCKED_MESSAGE;
+        enrichPayload(latest, respondentValid().respondent);
         const json = JSON.stringify(latest, null, 2);
-        if (latest.testId !== "life-location-fit") return json;
-        return `Here is my Life Location Fit Test result. Please analyze it and compare it with my partner's result if I provide another one.\n\n${json}`;
+        return `Here is my self-test result. Please analyze it as a self-reflection result, not as a medical diagnosis.\nRespondent: ${latest.respondent.name}\n\n${json}`;
       }
       function renderHist() {
         const h = hist();
@@ -2084,20 +2363,23 @@
                   dateStyle: "short",
                   timeStyle: "short",
                 });
-                const m =
-                  it.testId === "life-location-fit" ||
-                  it.result.type === "location"
-                    ? it.result.lifestyleProfile
-                    : it.testId === "coping"
-                      ? it.result.topStrategies[0].title
-                      : it.testId === "temp"
-                        ? it.result.temperament
-                        : it.testId === "dosha"
-                          ? it.result.profile
-                          : Object.values(it.result.groups).sort(
-                              (a, b) => b.balancePercent - a.balancePercent,
-                            )[0].title;
-                return `<div class="hi"><div><b>${it.testName}</b><span>${d} · ${m}</span></div><button class="secondary" type="button" data-i="${i}" style="padding:8px 10px">JSON</button></div>`;
+                const respondentName = it.respondent?.name || "Без имени",
+                  result = it.result || {},
+                  m =
+                    it.testId === "life-location-fit" || result.type === "location"
+                      ? result.lifestyleProfile
+                      : it.testId === "coping"
+                        ? result.topStrategies?.[0]?.title
+                        : it.testId === "temp"
+                          ? result.temperament
+                          : it.testId === "dosha"
+                            ? result.profile
+                            : result.groups
+                              ? Object.values(result.groups).sort(
+                                  (a, b) => b.balancePercent - a.balancePercent,
+                                )[0].title
+                              : "результат";
+                return `<div class="hi"><div><b>${respondentName} · ${it.testName}</b><span>${m} · ${d}</span></div><button class="secondary" type="button" data-i="${i}" style="padding:8px 10px">JSON</button></div>`;
               })
               .join("")
           : '<p class="empty">Пока сохранённых результатов нет.</p>';
@@ -2126,7 +2408,8 @@
       };
       $("reset").onclick = reset;
       $("copy").onclick = async () => {
-        if (!latest) return;
+        if (!latest || !requireExportReady()) return;
+        finalizeLatest();
         const s = copyPayload();
         try {
           await navigator.clipboard.writeText(s);
@@ -2136,23 +2419,35 @@
           document.execCommand("copy");
         }
         $("export").style.display = "block";
+        $("out").value = s;
         $("ok").style.display = "block";
       };
-      $("download").onclick = () =>
-        latest &&
+      $("download").onclick = () => {
+        if (!latest || !requireExportReady()) return;
+        finalizeLatest();
         dl(
           latest,
           `${latest.testId}-result-${new Date().toISOString().slice(0, 10)}.json`,
         );
-      $("toggle").onclick = () =>
-        latest &&
-        ($("export").style.display =
-          $("export").style.display === "block" ? "none" : "block");
+      };
+      $("toggle").onclick = () => {
+        if (!latest || !requireExportReady()) return;
+        finalizeLatest();
+        $("out").value = copyPayload();
+        $("export").style.display =
+          $("export").style.display === "block" ? "none" : "block";
+      };
       $("all").onclick = () =>
         dl(
           { exportedAt: new Date().toISOString(), results: hist() },
           `all-self-test-results-${new Date().toISOString().slice(0, 10)}.json`,
         );
+      document.querySelectorAll('input[name="respondentPreset"]').forEach(
+        (input) =>
+          (input.onchange = () => setRespondent(input.value, $("respondentName").value)),
+      );
+      $("respondentName").oninput = () => setRespondent("other", $("respondentName").value);
+      renderRespondentState();
       $("clear").onclick = () => {
         localStorage.removeItem(KEY);
         renderHist();
